@@ -1169,12 +1169,13 @@
       border-radius: 50%;
       background:
         conic-gradient(
-          var(--amber) 0 10%,
-          var(--rose) 10% 40%,
-          var(--violet) 40% 60%,
-          var(--cyan) 60% 85%,
-          var(--green) 85% 95%,
-          var(--orange) 95% 100%
+          var(--amber) 0 45%,
+          var(--rose) 45% 63%,
+          var(--violet) 63% 76%,
+          var(--cyan) 76% 84%,
+          var(--green) 84% 92%,
+          var(--blue) 92% 97%,
+          var(--orange) 97% 100%
         );
       position: relative;
       box-shadow: 0 0 70px rgba(200,169,106,0.16);
@@ -2108,6 +2109,96 @@
       line-height: 1.45;
     }
 
+
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .method-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255, 246, 228, 0.04);
+      padding: 22px;
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .method-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      font-size: 58px;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      color: rgba(217, 196, 154, 0.055);
+      pointer-events: none;
+    }
+
+    .method-card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      max-width: 84%;
+    }
+
+    .method-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .logic-table {
+      margin-top: 18px;
+    }
+
+    .logic-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 196, 154, 0.18);
+      background: rgba(200, 169, 106, 0.09);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.02em;
+    }
+
+    .decision-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .decision-card {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 246, 228, 0.035);
+      padding: 18px;
+      min-height: 150px;
+    }
+
+    .decision-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .decision-card span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.48;
+      font-size: 13px;
+    }
+
     @media (max-width: 1100px) {
       .hero,
       .dashboard-row,
@@ -2132,7 +2223,9 @@
 
       .grid.four,
       .timeline,
-      .channel-board {
+      .channel-board,
+      .methodology-grid,
+      .decision-strip {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -2185,7 +2278,9 @@
       .process-grid,
       .ops-board,
       .reference-item,
-      .audit-row {
+      .audit-row,
+      .methodology-grid,
+      .decision-strip {
         grid-template-columns: 1fr;
       }
 
@@ -2399,7 +2494,8 @@
       <a href="#audience">Audience</a>
       <a href="#competitors">Competitors</a>
       <a href="#campaigns">Campaigns</a>
-      <a href="#channels">Channels</a>
+      <a href="#rationale">Rationale</a>
+      <a href="#channels">Support Recs</a>
       <a href="#execution-system">Execution</a>
       <a href="#keywords">Keywords</a>
       <a href="#funnel">CRO</a>
@@ -2411,9 +2507,9 @@
   <main id="top">
     <section class="shell hero">
       <div class="hero-copy reveal">
-        <h1><span class="gradient-text">Sampleton Headphones Google Ads Growth Strategy</span></h1>
+        <h1><span class="gradient-text">Sampleton Headphones Google Ads Sales Strategy</span></h1>
         <p class="hero-lead">
-          A structured plan to increase US ecommerce sales through Google Search, Shopping, Performance Max, remarketing, conversion tracking, and landing page optimization.
+          A Google Ads-focused plan to increase US ecommerce sales through Shopping, Performance Max, Search, remarketing, conversion tracking, and landing page optimization.
         </p>
 
         <div class="hero-actions">
@@ -2667,21 +2763,21 @@
 
           <div class="glass card reveal delay-1">
             <div class="chart-title">
-              <h3>Budget allocation by campaign type</h3>
-              <span>Bottom-funnel campaigns receive priority because the campaign objective is ecommerce revenue.</span>
+              <h3>Budget allocation inside Google Ads</h3>
+              <span>Shopping and Performance Max receive the largest share because the objective is ecommerce revenue.</span>
             </div>
             <div class="campaign-list">
-              <div class="campaign-row"><div class="campaign-name"><strong>Brand Search</strong><span>Capture existing demand and protect brand intent.</span></div><div class="campaign-percent">10%</div><div class="campaign-budget">$500</div></div>
-              <div class="campaign-row"><div class="campaign-name"><strong>High-Intent Search</strong><span>Bottom-funnel product and feature searches.</span></div><div class="campaign-percent">30%</div><div class="campaign-budget">$1,500</div></div>
-              <div class="campaign-row"><div class="campaign-name"><strong>Platform Search</strong><span>PS5, Xbox, PC, Switch, Mac, and VR intent.</span></div><div class="campaign-percent">20%</div><div class="campaign-budget">$1,000</div></div>
-              <div class="campaign-row"><div class="campaign-name"><strong>Shopping or PMax</strong><span>Product feed-led ecommerce acquisition.</span></div><div class="campaign-percent">25%</div><div class="campaign-budget">$1,250</div></div>
-              <div class="campaign-row"><div class="campaign-name"><strong>Remarketing</strong><span>Product viewers, cart abandoners, checkout abandoners.</span></div><div class="campaign-percent">10%</div><div class="campaign-budget">$500</div></div>
-              <div class="campaign-row"><div class="campaign-name"><strong>YouTube or Demand Gen Test</strong><span>Small controlled creative test after tracking is ready.</span></div><div class="campaign-percent">5%</div><div class="campaign-budget">$250</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Shopping / Performance Max Retail</strong><span>Main ecommerce revenue engine using Merchant Center feed, product images, pricing, and product groups.</span></div><div class="campaign-percent">45%</div><div class="campaign-budget">$2,250</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>High-Intent Search</strong><span>Bottom-funnel product, feature, and comparison searches.</span></div><div class="campaign-percent">18%</div><div class="campaign-budget">$900</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Platform-Specific Search</strong><span>PS5, Xbox, PC, Switch, Mac, Nintendo, and VR purchase intent.</span></div><div class="campaign-percent">13%</div><div class="campaign-budget">$650</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Competitor Alternative Search</strong><span>Controlled comparison intent around alternatives to Razer, SteelSeries, Logitech G, HyperX, and Turtle Beach.</span></div><div class="campaign-percent">8%</div><div class="campaign-budget">$400</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Remarketing / Demand Gen Retargeting</strong><span>Recover product viewers, cart abandoners, checkout starters, and comparison-page visitors.</span></div><div class="campaign-percent">8%</div><div class="campaign-budget">$400</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Brand Search</strong><span>Protect existing demand without overfunding it.</span></div><div class="campaign-percent">5%</div><div class="campaign-budget">$250</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>YouTube / Demand Gen Proof Test</strong><span>Small controlled test for mic demos, comfort proof, setup videos, and warm retargeting pools.</span></div><div class="campaign-percent">3%</div><div class="campaign-budget">$150</div></div>
             </div>
           </div>
         </div>
-
-        <div class="table-wrap reveal" style="margin-top:18px;">
+        <div class="table-wrap reveal style="margin-top:18px;">
           <table>
             <thead>
               <tr>
@@ -2692,11 +2788,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>High-Intent Search</td><td>Gaming headset, wireless, wired, headset with mic, premium, best gaming headset.</td><td>Category pages with reviews, product proof, comparison, clear CTA.</td><td>ROAS, CPA, revenue</td></tr>
-              <tr><td>Platform Search</td><td>PC, PS5, Xbox, Nintendo Switch, VR, Mac compatible.</td><td>Platform-specific pages with badges, compatibility FAQs, setup clarity.</td><td>CVR, ROAS, purchases</td></tr>
-              <tr><td>Shopping or PMax</td><td>Wireless, wired, premium, platform-specific, best sellers.</td><td>Clean feed titles, strong images, product reviews, competitive pricing.</td><td>Product-level ROAS</td></tr>
-              <tr><td>Remarketing</td><td>Viewers, cart abandoners, checkout abandoners, past customers.</td><td>Cart recovery, warranty reassurance, bundle or shipping incentive tests.</td><td>Recovered revenue</td></tr>
-              <tr><td>YouTube or Demand Gen</td><td>Mic demo, cross-platform setup, comfort story.</td><td>Video-first proof and warm audience retargeting.</td><td>Assisted conversions</td></tr>
+              <tr><td>Shopping / Performance Max Retail</td><td>Wireless, wired, premium, platform-specific, best sellers, high-margin products.</td><td>Optimized Merchant Center feed, strong product images, product reviews, price competitiveness, and product groups.</td><td>Product-level ROAS</td></tr>
+              <tr><td>High-Intent Search</td><td>Wireless gaming headset, wired gaming headset, gaming headset with mic, premium gaming headset, best headset under 200.</td><td>Category and product pages with comparison proof, reviews, shipping clarity, and direct CTA.</td><td>ROAS, CPA, revenue</td></tr>
+              <tr><td>Platform-Specific Search</td><td>PC, PS5, Xbox, Nintendo Switch, VR, Mac compatible.</td><td>Platform-specific pages with badges, compatibility FAQs, setup clarity, and product recommendations.</td><td>CVR, ROAS, purchases</td></tr>
+              <tr><td>Competitor Alternative Search</td><td>Razer alternative, SteelSeries alternative, HyperX alternative, Logitech G alternative, Turtle Beach alternative.</td><td>Comparison landing page focused on price, mic, battery, comfort, warranty, and compatibility.</td><td>CPA, ROAS, qualified sessions</td></tr>
+              <tr><td>Remarketing / Demand Gen Retargeting</td><td>Product viewers, cart abandoners, checkout starters, comparison visitors, high-intent visitors.</td><td>Warranty reassurance, shipping clarity, cart recovery, bundle or free-shipping threshold tests.</td><td>Recovered revenue</td></tr>
+              <tr><td>Brand Search</td><td>Sampleton brand, Sampleton headset, Sampleton headphones, Sampleton gaming headset.</td><td>Homepage, best sellers, or branded product collection depending on query intent.</td><td>Brand ROAS, impression share</td></tr>
+              <tr><td>YouTube / Demand Gen Proof Test</td><td>Mic demo, comfort proof, platform setup, headset comparison.</td><td>Short proof videos and retargeting audiences, not primary budget scaling.</td><td>Assisted conversions</td></tr>
             </tbody>
           </table>
         </div>
@@ -2704,140 +2802,256 @@
     </section>
 
 
+
+    <section id="rationale" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">05. Strategy Rationale</div>
+            <h2>Why this Google Ads structure was selected</h2>
+          </div>
+        </div>
+
+        <div class="methodology-grid">
+          <article class="method-card reveal" data-step="01">
+            <h3>Start from the business model</h3>
+            <p>Sampleton is an ecommerce headset brand selling $100 to $400 products. The campaign should therefore prioritize product-led buying behavior: product image, price, compatibility, reviews, availability, and offer clarity.</p>
+          </article>
+
+          <article class="method-card reveal delay-1" data-step="02">
+            <h3>Give the product feed the largest role</h3>
+            <p>Shopping and Performance Max receive the largest budget because they use Merchant Center product data to match products with commercial queries and ecommerce placements. This fits a product category where buyers compare models visually and quickly.</p>
+          </article>
+
+          <article class="method-card reveal delay-2" data-step="03">
+            <h3>Use Search to control intent</h3>
+            <p>Search is still critical, but it should be segmented. High-intent searches, platform searches, and competitor-alternative searches represent different decision stages and should not share the same budget or landing page.</p>
+          </article>
+
+          <article class="method-card reveal" data-step="04">
+            <h3>Protect budget from broad waste</h3>
+            <p>A $5,000 budget cannot afford broad, mixed traffic. The structure avoids one large generic campaign and uses exact, phrase, product-group, and audience segmentation to keep spend close to purchase intent.</p>
+          </article>
+
+          <article class="method-card reveal delay-1" data-step="05">
+            <h3>Recover demand before expanding it</h3>
+            <p>Remarketing receives a dedicated share because headset buyers often compare options before purchasing. Product viewers, cart abandoners, checkout starters, and comparison-page visitors need separate recovery messages.</p>
+          </article>
+
+          <article class="method-card reveal delay-2" data-step="06">
+            <h3>Keep proof testing small</h3>
+            <p>YouTube and Demand Gen are useful for mic demos, comfort proof, and setup videos, but they should not take core budget in month one. They should create warmer audiences and support conversion recovery.</p>
+          </article>
+        </div>
+
+        <div class="table-wrap logic-table reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Decision</th>
+                <th>Reasoning</th>
+                <th>Execution method</th>
+                <th>Validation signal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="logic-badge">Shopping / PMax first</span></td>
+                <td>Headsets are product-comparison items. Buyers evaluate image, price, product title, compatibility, reviews, and delivery confidence before clicking.</td>
+                <td>Optimize Merchant Center feed, split products by tier and platform, use custom labels, and monitor product-level ROAS.</td>
+                <td>Product ROAS, product CVR, feed diagnostics, cost per purchase.</td>
+              </tr>
+              <tr>
+                <td><span class="logic-badge">Search second</span></td>
+                <td>Search captures declared intent, but generic headset searches can waste budget if not segmented.</td>
+                <td>Separate High-Intent, Platform, Competitor Alternative, and Brand campaigns using exact and phrase match first.</td>
+                <td>Search term quality, CPA, keyword ROAS, landing page CVR.</td>
+              </tr>
+              <tr>
+                <td><span class="logic-badge">Platform search separated</span></td>
+                <td>Compatibility is a major headset purchase concern. PS5, Xbox, PC, Mac, Switch, and VR users need different reassurance.</td>
+                <td>Create platform ad groups and send each to a matching landing page with badges, FAQs, setup notes, and product recommendations.</td>
+                <td>Platform-level CVR, ROAS, bounce rate, add-to-cart rate.</td>
+              </tr>
+              <tr>
+                <td><span class="logic-badge">Competitor alternative controlled</span></td>
+                <td>Competitor searches can be expensive and legally sensitive if poorly executed, but they can capture comparison shoppers.</td>
+                <td>Use comparison-style landing pages and avoid misleading claims. Focus on value, compatibility, warranty, mic, battery, and comfort.</td>
+                <td>Qualified sessions, assisted conversions, CPA, ROAS.</td>
+              </tr>
+              <tr>
+                <td><span class="logic-badge">Remarketing protected</span></td>
+                <td>Users who add to cart or visit comparison pages are materially warmer than cold traffic.</td>
+                <td>Segment by viewer, cart abandoner, checkout starter, comparison visitor, and high-value product viewer.</td>
+                <td>Recovered revenue, checkout completion, remarketing ROAS.</td>
+              </tr>
+              <tr>
+                <td><span class="logic-badge">Brand Search small</span></td>
+                <td>The case does not provide brand-search volume, so brand protection should exist but not absorb budget.</td>
+                <td>Exact brand terms only. Increase if actual brand search volume and impression-share loss justify it.</td>
+                <td>Brand impression share, CPC, branded ROAS.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="decision-strip reveal">
+          <div class="decision-card">
+            <strong>Experience rule 1</strong>
+            <span>For ecommerce, budget follows product intent first, not abstract awareness.</span>
+          </div>
+          <div class="decision-card">
+            <strong>Experience rule 2</strong>
+            <span>Search campaigns should be split by decision context, not grouped by product category only.</span>
+          </div>
+          <div class="decision-card">
+            <strong>Experience rule 3</strong>
+            <span>PMax should not be launched blindly. Feed quality, conversion tracking, and revenue values must be verified first.</span>
+          </div>
+          <div class="decision-card">
+            <strong>Experience rule 4</strong>
+            <span>Non-Google channels are recommendations only because the task asks for a Google Ads sales strategy.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <section id="channels" class="section">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <div class="section-kicker">05. Channel Expansion</div>
-            <h2>Top-performing channels to support US ecommerce sales</h2>
+            <div class="section-kicker">06. Support Recommendations</div>
+            <h2>Non-Google platform recommendations only</h2>
           </div>
         </div>
 
         <div class="channel-board">
           <article class="channel-card reveal">
-            <span class="rank">Core</span>
-            <h3>Google Search and Shopping</h3>
-            <p>Best for buyers already searching for platform-specific, feature-specific, and comparison-based headset terms.</p>
+            <span class="rank">Primary</span>
+            <h3>Google Ads</h3>
+            <p>The full $5,000 media budget should be assigned to Google Ads for the main strategy because the task asks for a Google Ads campaign focused on US sales.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Demand capture and revenue efficiency.</span></div>
-              <div><b>Best use</b><span>Search, Shopping, Performance Max, branded protection, cart recovery.</span></div>
-              <div><b>KPI</b><span>ROAS, CPA, CVR, product-level revenue.</span></div>
+              <div><b>Role</b><span>Main paid acquisition channel.</span></div>
+              <div><b>Best use</b><span>Shopping, PMax, Search, remarketing, YouTube proof tests.</span></div>
+              <div><b>KPI</b><span>Revenue, ROAS, CPA, purchases.</span></div>
             </div>
           </article>
 
           <article class="channel-card reveal delay-1">
-            <span class="rank">Scale</span>
+            <span class="rank">Recommendation</span>
             <h3>Meta Ads</h3>
-            <p>Best for product discovery, creator-style creatives, lookalike audiences, retargeting, and offer testing.</p>
+            <p>Recommended later as a secondary ecommerce discovery and retargeting channel, especially after product winners and creative angles are identified from Google performance.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Demand creation and retargeting.</span></div>
-              <div><b>Best use</b><span>Advantage+ Shopping, catalog sales, video demos, cart abandoners.</span></div>
-              <div><b>KPI</b><span>Purchase ROAS, ATC rate, cost per purchase, creative win rate.</span></div>
+              <div><b>Use later</b><span>Catalog ads, product discovery, retargeting, lookalikes.</span></div>
+              <div><b>Needs</b><span>Strong product creatives, product catalog, purchase event tracking.</span></div>
+              <div><b>Budget</b><span>Separate future test budget, not part of the $5,000 Google plan.</span></div>
             </div>
           </article>
 
           <article class="channel-card reveal delay-2">
-            <span class="rank">Creative</span>
-            <h3>TikTok Ads</h3>
-            <p>Best for short product demonstrations, mic tests, gaming setup videos, comfort proof, and creator-led discovery.</p>
+            <span class="rank">Recommendation</span>
+            <h3>Amazon Ads</h3>
+            <p>Recommended only if Sampleton sells on Amazon with strong listings, reviews, competitive pricing, and available inventory.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Low-friction awareness and creative validation.</span></div>
-              <div><b>Best use</b><span>Spark Ads, product demos, creator reviews, retargeting viewers.</span></div>
-              <div><b>KPI</b><span>Thumb-stop rate, video hold, CPC, assisted sales.</span></div>
+              <div><b>Use later</b><span>Sponsored Products, Sponsored Brands, marketplace defense.</span></div>
+              <div><b>Needs</b><span>Amazon listings, reviews, Prime or fast shipping, strong product detail pages.</span></div>
+              <div><b>Budget</b><span>Separate marketplace budget, not assumed in this task.</span></div>
             </div>
           </article>
 
           <article class="channel-card reveal">
-            <span class="rank">Proof</span>
-            <h3>YouTube Ads</h3>
-            <p>Best for showing mic clarity, latency confidence, platform setup, and product comparisons before purchase.</p>
+            <span class="rank">Optional</span>
+            <h3>TikTok Ads</h3>
+            <p>Optional creative validation channel for gaming demos, mic tests, setup videos, and creator-style content. Not a first-priority ROAS channel for this Google Ads assessment.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Education and mid-funnel trust building.</span></div>
-              <div><b>Best use</b><span>Shorts, in-stream demos, product comparison, remarketing.</span></div>
-              <div><b>KPI</b><span>View rate, engaged sessions, assisted conversions.</span></div>
+              <div><b>Use later</b><span>Creator demos, Spark Ads, short-form testing.</span></div>
+              <div><b>Needs</b><span>Strong UGC-style videos and creator proof.</span></div>
+              <div><b>Budget</b><span>No launch budget unless client has strong creative assets.</span></div>
             </div>
           </article>
 
           <article class="channel-card reveal delay-1">
-            <span class="rank">Revenue</span>
+            <span class="rank">Support</span>
             <h3>Email and SMS</h3>
-            <p>Best for abandoned cart recovery, first-purchase incentives, bundle promotions, product education, and retention.</p>
+            <p>Support infrastructure only, not a paid media channel. Use for cart recovery, browse abandonment, post-purchase education, and retention.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Recover lost revenue and increase LTV.</span></div>
-              <div><b>Best use</b><span>Cart flows, browse flows, post-purchase upsells, winback.</span></div>
-              <div><b>KPI</b><span>Recovered revenue, repeat purchase rate, flow revenue.</span></div>
+              <div><b>Role</b><span>CRO and retention support.</span></div>
+              <div><b>Needs</b><span>Email/SMS platform, consent capture, abandoned cart flows.</span></div>
+              <div><b>Budget</b><span>Outside the Google Ads media budget.</span></div>
             </div>
           </article>
 
           <article class="channel-card reveal delay-2">
-            <span class="rank">Trust</span>
+            <span class="rank">Support</span>
             <h3>Affiliate and Review Sites</h3>
-            <p>Best for comparison shoppers who need independent proof before buying from a less familiar brand.</p>
+            <p>Recommended for authority and comparison shoppers, especially in a niche where reviews and technical proof influence purchase decisions.</p>
             <div class="channel-meta">
-              <div><b>Role</b><span>Authority, comparison traffic, and purchase confidence.</span></div>
-              <div><b>Best use</b><span>Creator reviews, gaming blogs, headset comparison lists.</span></div>
-              <div><b>KPI</b><span>Referral revenue, assisted conversions, branded search lift.</span></div>
+              <div><b>Use later</b><span>Gaming blogs, headset comparisons, micro-reviewers.</span></div>
+              <div><b>Needs</b><span>Review units, product proof, clear offer.</span></div>
+              <div><b>Budget</b><span>Separate PR or affiliate budget.</span></div>
             </div>
           </article>
         </div>
+        <div class="source-note">
+          <strong>Recommendation rule:</strong> The main plan should remain Google Ads-focused. Non-Google platforms are included as secondary recommendations only and should not take money from the $5,000 Google Ads budget unless the client explicitly changes the brief.
+        </div>
       </div>
     </section>
-
     <section id="execution-system" class="section">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <div class="section-kicker">06. Campaign Execution System</div>
-            <h2>How each campaign should be built, segmented, measured, and reused</h2>
+            <div class="section-kicker">07. Campaign Execution System</div>
+            <h2>Google Ads build, segmentation, measurement, and optimization</h2>
           </div>
         </div>
 
         <div class="process-grid">
           <article class="process-card glass reveal">
-            <h3>Google Search campaign segmentation</h3>
+            <h3>Shopping and Performance Max segmentation</h3>
             <ul class="process-list">
-              <li>Separate Brand, High-Intent Non-Brand, Platform Search, Feature Search, Price Intent, and Competitor Alternative campaigns.</li>
-              <li>Use exact and phrase match first, then test broad match only after conversion tracking and negative keyword patterns are reliable.</li>
-              <li>Build ad groups around one decision context: PS5 compatibility, Xbox compatibility, wireless with mic, headset for glasses, streaming headset, premium headset, and under-$200 intent.</li>
-              <li>Use keyword-level landing page mapping so each ad group sends users to the most relevant page, not a generic collection page.</li>
-              <li>Review search terms daily during the launch period and weekly after stabilization.</li>
+              <li>Use Merchant Center as the campaign foundation: titles, product type, images, price, availability, shipping, tax, GTINs, and return settings.</li>
+              <li>Segment asset groups by Wireless, Wired, Platform-Specific, Premium, Best Sellers, High-Margin Products, and Promotion Products.</li>
+              <li>Use custom labels for price tier, margin priority, platform compatibility, inventory level, bestseller status, and promotion status.</li>
+              <li>Exclude weak or low-margin products from scaling until product-level ROAS is validated.</li>
+              <li>Use PMax for retail scale only after purchase tracking, enhanced conversions, and revenue values are verified.</li>
             </ul>
           </article>
 
           <article class="process-card glass reveal delay-1">
-            <h3>Shopping and Merchant Center approach</h3>
+            <h3>Search campaign segmentation</h3>
             <ul class="process-list">
-              <li>Optimize product titles with product type, platform compatibility, wireless or wired, mic, color, and primary differentiator.</li>
-              <li>Audit Merchant Center for disapprovals, GTINs, availability, pricing consistency, image quality, shipping, tax, and return settings.</li>
-              <li>Segment product groups by wireless, wired, premium price tier, platform compatibility, best sellers, and margin priority.</li>
-              <li>Use custom labels for margin level, price tier, hero products, seasonal products, and promotion status.</li>
-              <li>Exclude weak products from scaling until product-level ROAS and conversion rate are validated.</li>
+              <li>Separate High-Intent Search, Platform Search, Competitor Alternative Search, and Brand Search.</li>
+              <li>Use exact and phrase match at launch. Test broad match only after enough conversion data and negative keyword patterns exist.</li>
+              <li>Build ad groups around one decision context: PS5, Xbox, PC, Switch, Mac, VR, wireless, wired, mic quality, comfort, streaming, and price intent.</li>
+              <li>Map every ad group to the most relevant landing page instead of sending all traffic to one generic collection page.</li>
+              <li>Review search terms daily during the first two weeks and add negatives aggressively.</li>
             </ul>
           </article>
 
           <article class="process-card glass reveal">
-            <h3>Meta campaign approach</h3>
+            <h3>Remarketing and Demand Gen retargeting</h3>
             <ul class="process-list">
-              <li>Launch Advantage+ Shopping for catalog-based sales once the pixel and purchase events are verified.</li>
-              <li>Test creative angles by use case: FPS advantage, clear mic, comfort with glasses, console compatibility, setup upgrade, and gift purchase.</li>
-              <li>Build retargeting audiences for product viewers, add-to-cart users, checkout starters, video viewers, and engaged social users.</li>
-              <li>Use lookalikes after enough purchase and high-quality add-to-cart data is collected.</li>
-              <li>Separate prospecting creative tests from remarketing offers so results are not misread.</li>
+              <li>Create audiences for product viewers, cart abandoners, checkout starters, platform-page visitors, comparison-page visitors, and high-AOV product viewers.</li>
+              <li>Segment messaging by behavior: compatibility reassurance, warranty, reviews, shipping clarity, product comparison, and offer reminder.</li>
+              <li>Keep remarketing budget controlled so it supports conversion recovery without stealing budget from Shopping and Search.</li>
+              <li>Use Demand Gen or Display only after clean conversion tracking and audience lists are confirmed.</li>
+              <li>Exclude purchasers from short-term cart recovery and build separate retention audiences later.</li>
             </ul>
           </article>
 
           <article class="process-card glass reveal delay-1">
-            <h3>Data collection and audience reuse</h3>
+            <h3>YouTube proof test</h3>
             <ul class="process-list">
-              <li>Track view item, add to cart, begin checkout, purchase, revenue, product ID, device, landing page, campaign, and audience source.</li>
-              <li>Create remarketing lists by intent: PS5 viewers, Xbox viewers, wireless viewers, premium viewers, cart abandoners, checkout abandoners, and repeat buyers.</li>
-              <li>Use purchase data to build best-customer audiences and identify high-AOV product combinations.</li>
-              <li>Feed winning search terms into SEO content, landing pages, Shopping titles, Meta creative hooks, and FAQ blocks.</li>
-              <li>Use CRM, email, and SMS flows for cart recovery, product education, post-purchase cross-sell, and winback.</li>
+              <li>Use a small Google Ads test budget only for proof content: mic demo, comfort demo, platform setup, and comparison clips.</li>
+              <li>Optimize for engaged views, assisted conversions, and remarketing audience quality, not immediate first-click ROAS.</li>
+              <li>Use video viewers as warm audiences for Search, Demand Gen, and remarketing.</li>
+              <li>Refresh videos based on winning claims from search terms and product-page behavior.</li>
+              <li>Scale only if assisted conversion impact and audience quality justify it.</li>
             </ul>
           </article>
         </div>
-
         <div class="ops-board">
           <div class="ops-card reveal">
             <h3>Research inputs before launch</h3>
@@ -2886,7 +3100,7 @@
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <div class="section-kicker">08. CRO and funnel control</div>
+            <div class="section-kicker">09. CRO and funnel control</div>
             <h2>Landing Page and Checkout Optimization</h2>
           </div>
         </div>
@@ -3249,7 +3463,7 @@
   </main>
 
   <footer class="footer shell">
-    <p>Sampleton Headphones | Google Ads Growth Strategy, Forecast Framework, and Research References</p>
+    <p>Sampleton Headphones | Google Ads Sales Strategy, Forecast Framework, and Research References</p>
   </footer>
 
   <script>
