@@ -1848,6 +1848,257 @@
       text-underline-offset: 3px;
     }
 
+
+    .source-note {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(217, 196, 154, 0.16);
+      background: rgba(255, 246, 228, 0.035);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .source-note strong {
+      color: var(--soft);
+      font-weight: 850;
+    }
+
+    .source-note a {
+      color: var(--soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 12px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .reference-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 246, 228, 0.04);
+    }
+
+    .reference-item strong {
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .reference-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .reference-item a {
+      color: var(--soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .channel-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .channel-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255, 246, 228, 0.04);
+      padding: 22px;
+      min-height: 310px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .channel-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 12%, rgba(200,169,106,0.10), transparent 12rem);
+      pointer-events: none;
+    }
+
+    .channel-card .rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 34px;
+      padding: 0 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(217,196,154,0.18);
+      background: rgba(200,169,106,0.10);
+      color: var(--soft);
+      font-weight: 900;
+      font-size: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .channel-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .channel-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .channel-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .channel-meta div {
+      display: grid;
+      grid-template-columns: 94px 1fr;
+      gap: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(217,196,154,0.10);
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .channel-meta b {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255, 246, 228, 0.04);
+      padding: 24px;
+      min-height: 330px;
+    }
+
+    .process-card h3 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      letter-spacing: -0.035em;
+    }
+
+    .process-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .process-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .process-list li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .process-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.58em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      opacity: 0.86;
+    }
+
+    .ops-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .ops-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,246,228,0.04);
+    }
+
+    .ops-card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .ops-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .audit-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .audit-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(217,196,154,0.10);
+    }
+
+    .audit-row strong {
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .audit-row span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     @media (max-width: 1100px) {
       .hero,
       .dashboard-row,
@@ -1871,7 +2122,8 @@
       }
 
       .grid.four,
-      .timeline {
+      .timeline,
+      .channel-board {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1919,7 +2171,12 @@
       .matrix,
       .response-grid,
       .timeline,
-      .mini-kpis {
+      .mini-kpis,
+      .channel-board,
+      .process-grid,
+      .ops-board,
+      .reference-item,
+      .audit-row {
         grid-template-columns: 1fr;
       }
 
@@ -2133,6 +2390,8 @@
       <a href="#audience">Audience</a>
       <a href="#competitors">Competitors</a>
       <a href="#campaigns">Campaigns</a>
+      <a href="#channels">Channels</a>
+      <a href="#execution-system">Execution</a>
       <a href="#keywords">Keywords</a>
       <a href="#funnel">CRO</a>
       <a href="#forecast">Forecast</a>
@@ -2243,16 +2502,7 @@
             <div class="small">US gamers form a large audience, but paid search must target intent, not stereotypes.</div>
           </div>
         </div>
-
-
-        <div class="source-note inline reveal">
-          <strong>Research references:</strong>
-          Market size and CAGR benchmarks are based on Mordor Intelligence’s U.S. Gaming Headsets Market analysis. The U.S. gamer population benchmark is based on the Entertainment Software Association’s 2025 Essential Facts release.
-          <a href="https://www.mordorintelligence.com/industry-reports/united-states-gaming-headsets-market" target="_blank" rel="noopener">Mordor Intelligence</a> ·
-          <a href="https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/" target="_blank" rel="noopener">ESA 2025</a>
-        </div>
-
-        <div class="dashboard-row">
+<div class="dashboard-row">
           <div class="chart-panel glass reveal">
             <div class="chart-title">
               <h3>Demand signals to prioritize</h3>
@@ -2266,10 +2516,7 @@
               <div class="bar-item"><div class="bar-label">Premium value</div><div class="bar-track"><span class="bar-fill" style="--value: 72%"></span></div><div class="bar-value">72</div></div>
               <div class="bar-item"><div class="bar-label">Gift intent</div><div class="bar-track"><span class="bar-fill" style="--value: 62%"></span></div><div class="bar-value">62</div></div>
             </div>
-            <div class="source-note">
-              <strong>Basis:</strong> Demand priorities are derived from market growth signals, product category review, competitor product positioning, and the case research pack. These scores are strategic prioritization indexes, not market-share percentages.
-            </div>
-          </div>
+</div>
 
           <div class="chart-panel glass reveal delay-2">
             <div class="chart-title">
@@ -2300,14 +2547,7 @@
             The audience strategy is organized by search intent, platform, product need, price sensitivity, and funnel stage. Audience layers support the campaign structure but do not replace keyword intent.
           </p>
         </div>
-
-        <div class="source-note inline reveal">
-          <strong>Research references:</strong>
-          Audience framing uses the ESA 2025 gamer-demographic benchmark and Sampleton’s product scope across Mac, PC, Xbox, PlayStation, VR, and Nintendo.
-          <a href="https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/" target="_blank" rel="noopener">ESA 2025</a>
-        </div>
-
-        <div class="persona-grid">
+<div class="persona-grid">
           <article class="persona glass reveal">
             <div class="persona-top">
               <h3>Competitive Corey</h3>
@@ -2365,6 +2605,10 @@
           </p>
         </div>
 
+        <div class="source-note">
+          <strong>Market reference:</strong> Market size and growth benchmarks are based on Mordor Intelligence’s U.S. Gaming Headsets Market analysis. The U.S. gamer population benchmark is based on Entertainment Software Association 2025 reporting.
+        </div>
+
         <div class="dashboard-row">
           <div class="positioning-map reveal">
             <div class="axis top">High trust</div>
@@ -2400,22 +2644,14 @@
             </table>
           </div>
         </div>
-
-        <div class="source-note inline reveal">
-          <strong>Competitor reference basis:</strong>
-          Competitor positioning is informed by official product category pages and current public headset comparisons for Razer, SteelSeries, HyperX, Logitech G, and Turtle Beach.
-          <a href="https://www.razer.com/pc/gaming-headsets-and-audio" target="_blank" rel="noopener">Razer</a> ·
-          <a href="https://steelseries.com/gaming-headsets" target="_blank" rel="noopener">SteelSeries</a> ·
-          <a href="https://row.hyperx.com/collections/gaming-headsets" target="_blank" rel="noopener">HyperX</a> ·
-          <a href="https://www.logitechg.com/en-us/shop/c/gaming-headsets-audio" target="_blank" rel="noopener">Logitech G</a> ·
-          <a href="https://www.turtlebeach.com/collections/headsets" target="_blank" rel="noopener">Turtle Beach</a>
-        </div>
-
-        <div class="grid four" style="margin-top:18px;">
+<div class="grid four" style="margin-top:18px;">
           <div class="card glass hover-lift reveal"><div class="icon-badge">01</div><h3>Compatibility confusion</h3><p>Turn platform uncertainty into landing pages, badges, setup steps, and platform-specific ads.</p></div>
           <div class="card glass hover-lift reveal delay-1"><div class="icon-badge">02</div><h3>Mic skepticism</h3><p>Add voice demos, noisy-room examples, Discord proof, and direct product-page evidence.</p></div>
           <div class="card glass hover-lift reveal delay-2"><div class="icon-badge">03</div><h3>Comfort anxiety</h3><p>Show long-session testing, cushion materials, weight, clamp pressure, and glasses comfort.</p></div>
           <div class="card glass hover-lift reveal delay-3"><div class="icon-badge">04</div><h3>Unknown-brand risk</h3><p>Use reviews, warranties, return policy, shipping clarity, comparison tables, and support proof.</p></div>
+        </div>
+        <div class="source-note">
+          <strong>Competitor reference:</strong> Competitor positioning is based on public product-category review across Razer, SteelSeries, HyperX, Logitech G, Turtle Beach, and marketplace value brands.
         </div>
       </div>
     </section>
@@ -2476,11 +2712,174 @@
             </tbody>
           </table>
         </div>
-        <div class="source-note inline reveal">
-          <strong>Channel reference:</strong>
-          Performance Max and Shopping recommendations follow Google’s campaign-type documentation for ecommerce product promotion through Merchant Center and Google Ads inventory.
-          <a href="https://support.google.com/google-ads/answer/10724817?hl=en" target="_blank" rel="noopener">Google Ads Performance Max</a> ·
-          <a href="https://support.google.com/google-ads/answer/2454022?hl=en" target="_blank" rel="noopener">Google Shopping ads</a>
+</div>
+    </section>
+
+
+    <section id="channels" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">05. Channel Expansion</div>
+            <h2>Top-performing channels to support US ecommerce sales</h2>
+          </div>
+          <p class="section-copy">
+            Google should remain the high-intent acquisition core, but the growth plan should not depend only on Google. The strongest approach is to combine demand capture, product discovery, creative testing, retargeting, and retention.
+          </p>
+        </div>
+
+        <div class="channel-board">
+          <article class="channel-card reveal">
+            <span class="rank">Core</span>
+            <h3>Google Search and Shopping</h3>
+            <p>Best for buyers already searching for platform-specific, feature-specific, and comparison-based headset terms.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Demand capture and revenue efficiency.</span></div>
+              <div><b>Best use</b><span>Search, Shopping, Performance Max, branded protection, cart recovery.</span></div>
+              <div><b>KPI</b><span>ROAS, CPA, CVR, product-level revenue.</span></div>
+            </div>
+          </article>
+
+          <article class="channel-card reveal delay-1">
+            <span class="rank">Scale</span>
+            <h3>Meta Ads</h3>
+            <p>Best for product discovery, creator-style creatives, lookalike audiences, retargeting, and offer testing.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Demand creation and retargeting.</span></div>
+              <div><b>Best use</b><span>Advantage+ Shopping, catalog sales, video demos, cart abandoners.</span></div>
+              <div><b>KPI</b><span>Purchase ROAS, ATC rate, cost per purchase, creative win rate.</span></div>
+            </div>
+          </article>
+
+          <article class="channel-card reveal delay-2">
+            <span class="rank">Creative</span>
+            <h3>TikTok Ads</h3>
+            <p>Best for short product demonstrations, mic tests, gaming setup videos, comfort proof, and creator-led discovery.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Low-friction awareness and creative validation.</span></div>
+              <div><b>Best use</b><span>Spark Ads, product demos, creator reviews, retargeting viewers.</span></div>
+              <div><b>KPI</b><span>Thumb-stop rate, video hold, CPC, assisted sales.</span></div>
+            </div>
+          </article>
+
+          <article class="channel-card reveal">
+            <span class="rank">Proof</span>
+            <h3>YouTube Ads</h3>
+            <p>Best for showing mic clarity, latency confidence, platform setup, and product comparisons before purchase.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Education and mid-funnel trust building.</span></div>
+              <div><b>Best use</b><span>Shorts, in-stream demos, product comparison, remarketing.</span></div>
+              <div><b>KPI</b><span>View rate, engaged sessions, assisted conversions.</span></div>
+            </div>
+          </article>
+
+          <article class="channel-card reveal delay-1">
+            <span class="rank">Revenue</span>
+            <h3>Email and SMS</h3>
+            <p>Best for abandoned cart recovery, first-purchase incentives, bundle promotions, product education, and retention.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Recover lost revenue and increase LTV.</span></div>
+              <div><b>Best use</b><span>Cart flows, browse flows, post-purchase upsells, winback.</span></div>
+              <div><b>KPI</b><span>Recovered revenue, repeat purchase rate, flow revenue.</span></div>
+            </div>
+          </article>
+
+          <article class="channel-card reveal delay-2">
+            <span class="rank">Trust</span>
+            <h3>Affiliate and Review Sites</h3>
+            <p>Best for comparison shoppers who need independent proof before buying from a less familiar brand.</p>
+            <div class="channel-meta">
+              <div><b>Role</b><span>Authority, comparison traffic, and purchase confidence.</span></div>
+              <div><b>Best use</b><span>Creator reviews, gaming blogs, headset comparison lists.</span></div>
+              <div><b>KPI</b><span>Referral revenue, assisted conversions, branded search lift.</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="execution-system" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">06. Campaign Execution System</div>
+            <h2>How each campaign should be built, segmented, measured, and reused</h2>
+          </div>
+          <p class="section-copy">
+            The launch should be built as a data system. Search behavior, product feed data, creative tests, checkout events, and remarketing audiences should all feed the next optimization cycle.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card glass reveal">
+            <h3>Google Search campaign segmentation</h3>
+            <p>Search campaigns should be separated by intent so budget does not mix high-converting buyer searches with broader research traffic.</p>
+            <ul class="process-list">
+              <li>Separate Brand, High-Intent Non-Brand, Platform Search, Feature Search, Price Intent, and Competitor Alternative campaigns.</li>
+              <li>Use exact and phrase match first, then test broad match only after conversion tracking and negative keyword patterns are reliable.</li>
+              <li>Build ad groups around one decision context: PS5 compatibility, Xbox compatibility, wireless with mic, headset for glasses, streaming headset, premium headset, and under-$200 intent.</li>
+              <li>Use keyword-level landing page mapping so each ad group sends users to the most relevant page, not a generic collection page.</li>
+              <li>Review search terms daily during the launch period and weekly after stabilization.</li>
+            </ul>
+          </article>
+
+          <article class="process-card glass reveal delay-1">
+            <h3>Shopping and Merchant Center approach</h3>
+            <p>Shopping performance depends on feed quality as much as bidding. The product data should make compatibility and buyer intent visible.</p>
+            <ul class="process-list">
+              <li>Optimize product titles with product type, platform compatibility, wireless or wired, mic, color, and primary differentiator.</li>
+              <li>Audit Merchant Center for disapprovals, GTINs, availability, pricing consistency, image quality, shipping, tax, and return settings.</li>
+              <li>Segment product groups by wireless, wired, premium price tier, platform compatibility, best sellers, and margin priority.</li>
+              <li>Use custom labels for margin level, price tier, hero products, seasonal products, and promotion status.</li>
+              <li>Exclude weak products from scaling until product-level ROAS and conversion rate are validated.</li>
+            </ul>
+          </article>
+
+          <article class="process-card glass reveal">
+            <h3>Meta campaign approach</h3>
+            <p>Meta should be used for product discovery, retargeting, and creative testing rather than copying Google’s search-intent structure.</p>
+            <ul class="process-list">
+              <li>Launch Advantage+ Shopping for catalog-based sales once the pixel and purchase events are verified.</li>
+              <li>Test creative angles by use case: FPS advantage, clear mic, comfort with glasses, console compatibility, setup upgrade, and gift purchase.</li>
+              <li>Build retargeting audiences for product viewers, add-to-cart users, checkout starters, video viewers, and engaged social users.</li>
+              <li>Use lookalikes after enough purchase and high-quality add-to-cart data is collected.</li>
+              <li>Separate prospecting creative tests from remarketing offers so results are not misread.</li>
+            </ul>
+          </article>
+
+          <article class="process-card glass reveal delay-1">
+            <h3>Data collection and audience reuse</h3>
+            <p>Every campaign should collect structured data that can be reused for segmentation, retargeting, retention, and creative decisions.</p>
+            <ul class="process-list">
+              <li>Track view item, add to cart, begin checkout, purchase, revenue, product ID, device, landing page, campaign, and audience source.</li>
+              <li>Create remarketing lists by intent: PS5 viewers, Xbox viewers, wireless viewers, premium viewers, cart abandoners, checkout abandoners, and repeat buyers.</li>
+              <li>Use purchase data to build best-customer audiences and identify high-AOV product combinations.</li>
+              <li>Feed winning search terms into SEO content, landing pages, Shopping titles, Meta creative hooks, and FAQ blocks.</li>
+              <li>Use CRM, email, and SMS flows for cart recovery, product education, post-purchase cross-sell, and winback.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="ops-board">
+          <div class="ops-card reveal">
+            <h3>Research inputs before launch</h3>
+            <div class="audit-list">
+              <div class="audit-row"><strong>Search Console</strong><span>Review existing organic queries, landing pages, impressions, CTR, and indexing gaps to identify SEO and paid-search overlap.</span></div>
+              <div class="audit-row"><strong>Keyword Planner</strong><span>Validate CPC ranges, search volume, competition, and forecast by platform, feature, price, and competitor keyword groups.</span></div>
+              <div class="audit-row"><strong>Manual SERP review</strong><span>Check real search results, Shopping listings, competitor offers, review snippets, price ranges, and landing page patterns.</span></div>
+              <div class="audit-row"><strong>Analytics review</strong><span>Check current CVR, device performance, AOV, cart abandonment, checkout completion, top products, and traffic source quality.</span></div>
+            </div>
+          </div>
+
+          <div class="ops-card reveal delay-1">
+            <h3>Optimization loop after launch</h3>
+            <div class="audit-list">
+              <div class="audit-row"><strong>Daily</strong><span>Spend pacing, disapprovals, broken URLs, tracking anomalies, search term waste, and budget leaks.</span></div>
+              <div class="audit-row"><strong>Weekly</strong><span>Keyword performance, product performance, device performance, feed improvements, landing page CVR, and creative test winners.</span></div>
+              <div class="audit-row"><strong>Monthly</strong><span>Forecast vs actual, campaign profitability, product-level ROAS, segment-level performance, scaling decisions, and next-month tests.</span></div>
+              <div class="audit-row"><strong>Quarterly</strong><span>Audience quality, retention value, customer cohorts, product mix, SEO growth impact, and budget expansion opportunities.</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2512,7 +2911,7 @@
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <div class="section-kicker">06. CRO and funnel control</div>
+            <div class="section-kicker">08. CRO and funnel control</div>
             <h2>Landing Page and Checkout Optimization</h2>
           </div>
           <p class="section-copy">
@@ -2531,9 +2930,34 @@
 
           <div class="checklist">
             <div class="check"><i>✓</i><div><strong>Above the fold must answer the keyword.</strong><span>PS5 buyers should see PS5 compatibility. Streamers should see mic proof. Comfort buyers should see cushion and fatigue proof.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Performance must be validated with the SEO team.</strong><span>PageSpeed checks should cover desktop and mobile Performance, Accessibility, Best Practices, and SEO before paid traffic is scaled.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Rich results must be technically clean.</strong><span>Rich Results testing should confirm crawled successfully status and structured data for Article where relevant, Breadcrumbs, FAQ, LocalBusiness where relevant, and Organization.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Organic visibility should support paid acquisition.</strong><span>SEO, GEO, and AEO work should use winning paid queries, FAQs, comparison language, and platform-intent pages to strengthen organic rankings and AI answer visibility.</span></div></div>
             <div class="check"><i>✓</i><div><strong>Product comparison needs to be visible.</strong><span>Buyers are comparing against Razer, SteelSeries, HyperX, Logitech G, and Amazon options.</span></div></div>
             <div class="check"><i>✓</i><div><strong>Trust must appear before checkout.</strong><span>Shipping, return policy, warranty, reviews, payment options, and support cannot hide in footer links.</span></div></div>
             <div class="check"><i>✓</i><div><strong>Cart recovery must be built before scaling.</strong><span>Remarketing, abandoned cart email, free-shipping threshold, and bundle testing are part of the sales system.</span></div></div>
+          </div>
+        </div>
+
+        <div class="ops-board">
+          <div class="ops-card reveal">
+            <h3>SEO, GEO, AEO, and creative readiness checklist</h3>
+            <div class="audit-list">
+              <div class="audit-row"><strong>Page speed</strong><span>Coordinate with the SEO team to improve desktop and mobile Performance, Accessibility, Best Practices, and SEO scores.</span></div>
+              <div class="audit-row"><strong>Structured data</strong><span>Confirm crawled successfully status and detected structured data for Breadcrumbs, FAQ, Organization, LocalBusiness where relevant, and Article where relevant.</span></div>
+              <div class="audit-row"><strong>Organic support</strong><span>Use paid-search learnings to improve SEO pages, comparison content, FAQ blocks, platform-intent pages, and AEO/GEO-ready answer sections.</span></div>
+              <div class="audit-row"><strong>Creative testing</strong><span>Prepare multiple ad creative versions before launch so Meta, YouTube, Display, Demand Gen, and retargeting can test clear angles quickly.</span></div>
+            </div>
+          </div>
+
+          <div class="ops-card reveal delay-1">
+            <h3>Landing page experiment queue</h3>
+            <div class="audit-list">
+              <div class="audit-row"><strong>Hero message</strong><span>Test platform-specific headline vs clear voice headline vs comfort headline.</span></div>
+              <div class="audit-row"><strong>Proof order</strong><span>Test review-first, comparison-first, mic-demo-first, and warranty-first layouts.</span></div>
+              <div class="audit-row"><strong>Offer</strong><span>Test bundle, free-shipping threshold, limited discount, and warranty reassurance.</span></div>
+              <div class="audit-row"><strong>Checkout</strong><span>Test express checkout, shipping clarity, payment icons, return-policy placement, and cart reminder flow.</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2550,14 +2974,7 @@
             Performance reporting should distinguish business outcomes from diagnostic signals. CTR and CPC are useful, but revenue, ROAS, CPA, CVR, AOV, and product-level profitability remain the core decision metrics.
           </p>
         </div>
-
-        <div class="source-note inline reveal">
-          <strong>Measurement reference:</strong>
-          Ecommerce tracking recommendations align with Google Analytics 4 ecommerce events such as product views, add to cart, begin checkout, and purchase.
-          <a href="https://developers.google.com/analytics/devguides/collection/ga4/ecommerce" target="_blank" rel="noopener">GA4 ecommerce measurement</a>
-        </div>
-
-        <div class="grid three">
+<div class="grid three">
           <div class="card glass hover-lift reveal">
             <div class="icon-badge">A</div>
             <h3>Business KPIs</h3>
@@ -2692,11 +3109,7 @@
             </div>
           </div>
         </div>
-        <div class="source-note inline reveal">
-          <strong>Forecast note:</strong>
-          The forecast figures are planning assumptions for scenario modeling. Final projections should be recalculated after Keyword Planner CPCs, Merchant Center feed data, actual conversion rate, average order value, margin, and website analytics are available.
-        </div>
-      </div>
+</div>
     </section>
 
     <section id="feedback" class="section">
