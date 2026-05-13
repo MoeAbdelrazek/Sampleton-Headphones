@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium performance marketing strategy dashboard for the Sampleton Headphones Google Ads ecommerce case." />
+  <title>Sampleton Headphones | Performance Marketing Strategy Dashboard</title>
+
+  <style>
+    :root {
+      --bg: #120d13;
+      --bg-2: #211522;
+      --panel: rgba(33, 21, 34, 0.84);
+      --panel-2: rgba(51, 31, 52, 0.74);
+      --line: rgba(244, 214, 176, 0.16);
+      --line-strong: rgba(244, 214, 176, 0.32);
+      --text: #fff7ec;
+      --muted: #cbb9aa;
+      --soft: #ead7c5;
+      --cyan: #6fffe1;
+      --blue: #ffb86b;
+      --violet: #d66cff;
+      --green: #72f6a4;
+      --amber: #ffd166;
+      --rose: #ff5f8f;
+      --orange: #ff9f43;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1240px;
+      --print-bg: #f5f0e9;
+      --print-text: #2a211d;
+      --print-card: #fffaf4;
+      --print-line: #d6c4b4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 184, 107, 0.20), transparent 30rem),
+        radial-gradient(circle at 82% 14%, rgba(214, 108, 255, 0.16), transparent 31rem),
+        radial-gradient(circle at 64% 72%, rgba(111, 255, 225, 0.105), transparent 34rem),
+        radial-gradient(circle at 8% 86%, rgba(255, 95, 143, 0.10), transparent 28rem),
+        linear-gradient(135deg, #120d13 0%, #241323 42%, #2a1718 72%, #140f13 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 226, 190, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 226, 190, 0.026) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 72%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255, 184, 107, 0.055) 20%, transparent 42%),
+        radial-gradient(circle at 50% -10%, rgba(255, 246, 228, 0.07), transparent 30rem),
+        radial-gradient(circle at 100% 100%, rgba(111, 255, 225, 0.055), transparent 32rem);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 999;
+      background-image:
+        repeating-radial-gradient(circle at 0 0, rgba(255,255,255,0.8) 0 1px, transparent 1px 3px);
+      mix-blend-mode: screen;
+    }
+
+    .orb {
+      position: fixed;
+      width: 24rem;
+      height: 24rem;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(24px);
+      opacity: 0.16;
+      z-index: -1;
+      animation: floatOrb 16s ease-in-out infinite alternate;
+    }
+
+    .orb.one {
+      left: -10rem;
+      top: 18rem;
+      background: var(--cyan);
+    }
+
+    .orb.two {
+      right: -8rem;
+      top: 55rem;
+      background: var(--violet);
+      animation-delay: -5s;
+    }
+
+    .orb.three {
+      left: 45%;
+      bottom: 5rem;
+      background: var(--green);
+      animation-delay: -9s;
+    }
+
+    @keyframes floatOrb {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(4rem, -3rem, 0) scale(1.12); }
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 16px auto 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(24, 15, 24, 0.86);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 16px 60px rgba(0,0,0,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 18px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 20%, #fff 0 7%, transparent 8%),
+        linear-gradient(135deg, var(--amber), var(--rose) 46%, var(--violet));
+      box-shadow: 0 0 30px rgba(68,228,255,0.38);
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 10px 7px;
+      border: 2px solid rgba(7, 10, 18, 0.8);
+      border-top: none;
+      border-radius: 0 0 18px 18px;
+    }
+
+    .brand-text {
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-left: 16px;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav a {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+      border-color: rgba(68,228,255,0.32);
+      background: rgba(68,228,255,0.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .hero {
+      min-height: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 64px 0 54px;
+      position: relative;
+    }
+
+    .hero-copy {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-copy .eyebrow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(68,228,255,0.24);
+      border-radius: 999px;
+      background: rgba(68,228,255,0.08);
+      color: #bcf6ff;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 24px rgba(68,228,255,0.06);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.65); opacity: 0.55; }
+    }
+
+    h1 {
+      margin: 20px auto 16px;
+      font-size: clamp(34px, 4.15vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .gradient-text {
+      background: linear-gradient(115deg, #fffaf0 0%, #ffd9a6 24%, var(--rose) 48%, var(--violet) 70%, var(--cyan) 92%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 7s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-lead {
+      font-size: clamp(16px, 1.45vw, 20px);
+      line-height: 1.65;
+      color: var(--soft);
+      max-width: 780px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 750;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--amber), var(--rose));
+      color: #06101d;
+      border-color: transparent;
+      box-shadow: 0 16px 42px rgba(68,228,255,0.22);
+    }
+
+    .btn.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+      transition: transform 0.65s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.32);
+    }
+
+    .btn:hover::before {
+      transform: translateX(120%);
+    }
+
+    .hero-metrics {
+      margin: 30px auto 0;
+      max-width: 920px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.045);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      min-height: 112px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::after {
+      content: "";
+      position: absolute;
+      right: -2rem;
+      bottom: -2rem;
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(68,228,255,0.24), transparent 65%);
+    }
+
+    .metric-card .num {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .metric-card .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .radar-card {
+      width: min(100%, 1040px);
+      min-height: auto;
+      border-radius: 34px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)),
+        radial-gradient(circle at 30% 15%, rgba(255,184,107,0.16), transparent 22rem),
+        radial-gradient(circle at 78% 18%, rgba(214,108,255,0.13), transparent 18rem),
+        rgba(26, 17, 27, 0.86);
+      backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      transform-style: preserve-3d;
+      animation: cardFloat 7s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+      50% { transform: translateY(-14px) rotateX(1.5deg) rotateY(-1.5deg); }
+    }
+
+    .radar-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: conic-gradient(from 180deg, transparent, rgba(255,184,107,0.30), transparent, rgba(214,108,255,0.28), transparent, rgba(111,255,225,0.20), transparent);
+      animation: spin 12s linear infinite;
+      opacity: 0.78;
+    }
+
+    .radar-card::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 33px;
+      background:
+        radial-gradient(circle at 60% 18%, rgba(214,108,255,0.17), transparent 22rem),
+        radial-gradient(circle at 20% 90%, rgba(255,184,107,0.10), transparent 18rem),
+        rgba(20, 14, 22, 0.94);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .radar-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .mini-title strong {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .mini-title span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .status-pill {
+      color: #07111d;
+      background: var(--green);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 850;
+      box-shadow: 0 0 22px rgba(65,242,166,0.28);
+      white-space: nowrap;
+    }
+
+    .platform-orbit {
+      height: 190px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,184,107,0.14), transparent 36%),
+        radial-gradient(circle at 50% 50%, rgba(214,108,255,0.10), transparent 58%),
+        rgba(255,250,240,0.035);
+    }
+
+    .platform-orbit::before,
+    .platform-orbit::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1px dashed rgba(68,228,255,0.25);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .platform-orbit::before {
+      width: 178px;
+      height: 178px;
+      animation: spin 18s linear infinite;
+    }
+
+    .platform-orbit::after {
+      width: 112px;
+      height: 112px;
+      animation: spin 12s linear infinite reverse;
+    }
+
+    .headset-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 88px;
+      height: 88px;
+      transform: translate(-50%, -50%);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(68,228,255,0.2), rgba(157,108,255,0.18));
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 50px rgba(68,228,255,0.2);
+    }
+
+    .headset-icon svg {
+      width: 50px;
+      height: 50px;
+      filter: drop-shadow(0 0 12px rgba(68,228,255,0.55));
+    }
+
+    .orbit-tag {
+      position: absolute;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.24);
+      backdrop-filter: blur(12px);
+    }
+
+    .orbit-tag:nth-child(2) { left: 24px; top: 42px; }
+    .orbit-tag:nth-child(3) { right: 28px; top: 34px; }
+    .orbit-tag:nth-child(4) { left: 52px; bottom: 42px; }
+    .orbit-tag:nth-child(5) { right: 54px; bottom: 38px; }
+    .orbit-tag:nth-child(6) { left: 44%; top: 12px; }
+    .orbit-tag:nth-child(7) { left: 42%; bottom: 14px; }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .signal {
+      padding: 15px;
+      border-radius: 20px;
+      border: 1px solid rgba(148,163,184,0.18);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .signal b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .signal-line {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .signal-line span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      width: var(--w);
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+      transform-origin: left;
+      animation: loadBar 1.5s ease both;
+    }
+
+    @keyframes loadBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .section {
+      padding: 68px 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: block;
+      max-width: 980px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 auto;
+      font-size: clamp(25px, 2.75vw, 38px);
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      max-width: 860px;
+      text-align: center;
+    }
+
+    .section-copy {
+      margin: 14px auto 0;
+      color: var(--soft);
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 740px;
+      text-align: center;
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(255,250,240,0.075), rgba(255,250,240,0.03)),
+        rgba(30, 20, 31, 0.74);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(68,228,255,0.1), transparent 16rem);
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    .card:hover {
+      border-color: rgba(68,228,255,0.35);
+    }
+
+    .hover-lift {
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.44);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 14px;
+    }
+
+    .icon-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(68,228,255,0.18), rgba(157,108,255,0.15));
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--cyan);
+      font-weight: 900;
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.04);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.18);
+      background: rgba(255,255,255,0.045);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .market-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.2fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .stat-tile {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      min-height: 172px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,184,107,0.14), transparent 10rem),
+        radial-gradient(circle at 20% 90%, rgba(214,108,255,0.08), transparent 9rem),
+        rgba(255,250,240,0.04);
+    }
+
+    .stat-tile .big {
+      font-size: clamp(30px, 4.4vw, 56px);
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      margin: 6px 0;
+    }
+
+    .stat-tile .small {
+      color: var(--muted);
+      line-height: 1.42;
+      font-size: 14px;
+    }
+
+    .stat-tile .trend {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      font-size: 12px;
+      color: var(--green);
+      background: rgba(65,242,166,0.1);
+      border: 1px solid rgba(65,242,166,0.25);
+      padding: 7px 9px;
+      border-radius: 999px;
+      font-weight: 850;
+    }
+
+    .dashboard-row {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .chart-panel {
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      min-height: 430px;
+    }
+
+    .chart-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .chart-title h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.035em;
+    }
+
+    .chart-title span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      max-width: 270px;
+      text-align: right;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-item {
+      display: grid;
+      grid-template-columns: 140px 1fr 60px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bar-label {
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .bar-track {
+      height: 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .bar-fill {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+      box-shadow: 0 0 22px rgba(68,228,255,0.2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.15s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .in-view .bar-fill {
+      transform: scaleX(1);
+    }
+
+    .bar-value {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+      font-weight: 800;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .matrix-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.04);
+      min-height: 160px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .matrix-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -2rem -4rem auto;
+      width: 9rem;
+      height: 9rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(157,108,255,0.18), transparent 65%);
+    }
+
+    .matrix-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .matrix-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .positioning-map {
+      position: relative;
+      min-height: 440px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(to right, rgba(68,228,255,0.04), rgba(157,108,255,0.05)),
+        rgba(255,255,255,0.035);
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .positioning-map::before,
+    .positioning-map::after {
+      content: "";
+      position: absolute;
+      background: rgba(148,163,184,0.22);
+    }
+
+    .positioning-map::before {
+      left: 50%;
+      top: 38px;
+      bottom: 52px;
+      width: 1px;
+    }
+
+    .positioning-map::after {
+      left: 42px;
+      right: 42px;
+      top: 52%;
+      height: 1px;
+    }
+
+    .axis {
+      position: absolute;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      z-index: 2;
+    }
+
+    .axis.left { left: 24px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: left; }
+    .axis.right { right: 24px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: right; }
+    .axis.top { top: 18px; left: 50%; transform: translateX(-50%); }
+    .axis.bottom { bottom: 18px; left: 50%; transform: translateX(-50%); }
+
+    .brand-dot {
+      --x: 50%;
+      --y: 50%;
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+      color: #07111d;
+      background: var(--soft);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.28);
+    }
+
+    .brand-dot.sampleton {
+      color: #06101d;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      box-shadow: 0 0 28px rgba(68,228,255,0.36), 0 14px 34px rgba(0,0,0,0.32);
+      animation: beacon 2.2s ease-in-out infinite;
+    }
+
+    @keyframes beacon {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(68,228,255,0.32), 0 0 28px rgba(68,228,255,0.38); }
+      50% { box-shadow: 0 0 0 14px rgba(68,228,255,0), 0 0 34px rgba(68,228,255,0.52); }
+    }
+
+    .table-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      padding: 17px 18px;
+      color: #ddf9ff;
+      background: linear-gradient(135deg, rgba(68,228,255,0.18), rgba(93,124,255,0.13));
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 16px 18px;
+      color: var(--soft);
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+      line-height: 1.48;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(68,228,255,0.1);
+      border: 1px solid rgba(68,228,255,0.2);
+      color: #c4f8ff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .persona {
+      border-radius: var(--radius-xl);
+      padding: 0;
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .persona-top {
+      min-height: 190px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(255,255,255,0.20), transparent 10rem),
+        linear-gradient(135deg, rgba(68,228,255,0.22), rgba(93,124,255,0.15), rgba(157,108,255,0.2));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .persona-top::after {
+      content: "";
+      position: absolute;
+      right: 22px;
+      bottom: -18px;
+      width: 150px;
+      height: 150px;
+      border-radius: 38px;
+      background:
+        linear-gradient(135deg, rgba(7,10,18,0.72), rgba(7,10,18,0.18)),
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 4rem);
+      transform: rotate(12deg);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .persona-top h3 {
+      font-size: 29px;
+      margin: 0 0 8px;
+      letter-spacing: -0.045em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .persona-top p {
+      color: rgba(255,255,255,0.78);
+      position: relative;
+      z-index: 1;
+      max-width: 260px;
+    }
+
+    .persona-body {
+      padding: 24px;
+    }
+
+    .persona-row {
+      display: grid;
+      grid-template-columns: 98px 1fr;
+      gap: 10px;
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+      padding: 12px 0;
+    }
+
+    .persona-row:last-child {
+      border-bottom: none;
+    }
+
+    .persona-row span:first-child {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .persona-row span:last-child {
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .budget-donut {
+      display: grid;
+      place-items: center;
+      min-height: 440px;
+      position: relative;
+    }
+
+    .donut {
+      width: min(330px, 82vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          var(--amber) 0 10%,
+          var(--rose) 10% 40%,
+          var(--violet) 40% 60%,
+          var(--cyan) 60% 85%,
+          var(--green) 85% 95%,
+          var(--orange) 95% 100%
+        );
+      position: relative;
+      box-shadow: 0 0 70px rgba(68,228,255,0.16);
+      animation: slowRotate 18s linear infinite;
+    }
+
+    .donut::after {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.07), transparent 6rem),
+        #0b1020;
+      border: 1px solid var(--line);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.44);
+    }
+
+    @keyframes slowRotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .donut-center {
+      position: absolute;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .donut-center strong {
+      display: block;
+      font-size: 42px;
+      letter-spacing: -0.055em;
+    }
+
+    .donut-center span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .campaign-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .campaign-row {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr 80px 100px;
+      gap: 16px;
+      align-items: center;
+      transition: 0.22s ease;
+    }
+
+    .campaign-row:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateX(6px);
+      border-color: rgba(68,228,255,0.24);
+    }
+
+    .campaign-name strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .campaign-name span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .campaign-percent {
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+    }
+
+    .campaign-budget {
+      color: var(--soft);
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .keyword-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .keyword-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .keyword-card::before {
+      content: attr(data-index);
+      position: absolute;
+      right: -8px;
+      top: -28px;
+      font-size: 110px;
+      font-weight: 950;
+      color: rgba(255,255,255,0.035);
+      letter-spacing: -0.08em;
+    }
+
+    .keyword-card h3 {
+      position: relative;
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .keyword-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 9px;
+      position: relative;
+    }
+
+    .keyword-card li {
+      color: var(--soft);
+      padding-left: 18px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .keyword-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(68,228,255,0.55);
+    }
+
+    .funnel {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .funnel-viz {
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+    }
+
+    .funnel-step {
+      width: var(--fw);
+      border-radius: 18px;
+      padding: 17px 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(68,228,255,0.14), rgba(157,108,255,0.12));
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+      transform: translateY(18px);
+      opacity: 0;
+      transition: 0.72s ease;
+    }
+
+    .in-view .funnel-step {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .funnel-step:nth-child(2) { transition-delay: 0.1s; }
+    .funnel-step:nth-child(3) { transition-delay: 0.2s; }
+    .funnel-step:nth-child(4) { transition-delay: 0.3s; }
+    .funnel-step:nth-child(5) { transition-delay: 0.4s; }
+
+    .funnel-step strong {
+      font-size: 15px;
+    }
+
+    .funnel-step span {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      font-weight: 850;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .check i {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(65,242,166,0.13);
+      color: var(--green);
+      font-style: normal;
+      font-weight: 950;
+      border: 1px solid rgba(65,242,166,0.22);
+    }
+
+    .check strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .check span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.42;
+      font-size: 13px;
+    }
+
+    .tabs {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tab-buttons::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.24s ease;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      color: #06101d;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      border-color: transparent;
+      box-shadow: 0 0 26px rgba(68,228,255,0.22);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 26px;
+      animation: fadeUp 0.45s ease both;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .score-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      display: grid;
+      align-content: center;
+      text-align: center;
+      min-height: 280px;
+    }
+
+    .score-card .score {
+      font-size: 74px;
+      line-height: 0.9;
+      font-weight: 950;
+      letter-spacing: -0.075em;
+      background: linear-gradient(135deg, #fff, var(--cyan), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .score-card .score-label {
+      color: var(--muted);
+      margin-top: 12px;
+      font-weight: 800;
+    }
+
+    .mini-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mini-kpi {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .mini-kpi strong {
+      display: block;
+      font-size: 23px;
+      letter-spacing: -0.045em;
+    }
+
+    .mini-kpi span {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .response-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .response-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .response-head {
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(68,228,255,0.18), rgba(157,108,255,0.12)),
+        rgba(255,255,255,0.04);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .response-head h3 {
+      margin: 0 0 8px;
+      font-size: 27px;
+      letter-spacing: -0.04em;
+    }
+
+    .response-head p {
+      margin: 0;
+      color: var(--soft);
+      line-height: 1.5;
+    }
+
+    .accordion {
+      display: grid;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-button {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 850;
+      font-size: 15px;
+    }
+
+    .accordion-button span:last-child {
+      color: var(--cyan);
+      font-size: 22px;
+      transition: transform 0.25s ease;
+    }
+
+    .accordion-item.active .accordion-button span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .accordion-content-inner {
+      padding: 0 22px 18px;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline-card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 78px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(var(--cyan), transparent);
+      opacity: 0.65;
+    }
+
+    .week {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #07111d;
+      font-weight: 950;
+      margin-bottom: 18px;
+      box-shadow: 0 0 24px rgba(68,228,255,0.24);
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .timeline-card ul {
+      margin: 0;
+      padding: 0 0 0 22px;
+      display: grid;
+      gap: 9px;
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-reco {
+      min-height: 560px;
+      border-radius: 44px;
+      padding: clamp(28px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,184,107,0.18), transparent 28rem),
+        radial-gradient(circle at 88% 78%, rgba(214,108,255,0.24), transparent 28rem),
+        radial-gradient(circle at 60% 30%, rgba(111,255,225,0.08), transparent 20rem),
+        linear-gradient(135deg, rgba(255,250,240,0.09), rgba(255,250,240,0.035));
+      border: 1px solid rgba(148,163,184,0.22);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .final-reco::before {
+      content: "";
+      position: absolute;
+      inset: auto -12rem -14rem auto;
+      width: 34rem;
+      height: 34rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(65,242,166,0.16), transparent 62%);
+    }
+
+    .final-reco h2 {
+      font-size: clamp(32px, 4.2vw, 54px);
+      text-align: left;
+      margin: 0;
+    }
+
+    .final-reco p {
+      color: var(--soft);
+      line-height: 1.65;
+      font-size: 18px;
+      margin: 18px 0 0;
+    }
+
+    .recommendation-stack {
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .rec-item {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(7,10,18,0.46);
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      backdrop-filter: blur(16px);
+    }
+
+    .rec-item span:first-child {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(68,228,255,0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(68,228,255,0.22);
+      font-weight: 950;
+    }
+
+    .rec-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .rec-item small {
+      display: block;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .footer {
+      padding: 42px 0 60px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .dashboard-row,
+      .architecture,
+      .funnel,
+      .scenario-grid,
+      .final-reco {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .radar-card {
+        min-height: auto;
+      }
+
+      .signal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid.four,
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid.three,
+      .persona-grid,
+      .keyword-board {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .market-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .chart-title span {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        position: relative;
+        top: 0;
+        border-radius: 26px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav {
+        padding-left: 0;
+        margin-top: 10px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+
+      .hero-metrics,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .persona-grid,
+      .keyword-board,
+      .market-strip,
+      .matrix,
+      .response-grid,
+      .timeline,
+      .mini-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .radar-card {
+        min-height: auto;
+        border-radius: 30px;
+      }
+
+      .platform-orbit {
+        height: 220px;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .bar-value {
+        text-align: left;
+      }
+
+      .campaign-row {
+        grid-template-columns: 1fr;
+      }
+
+      .campaign-budget {
+        text-align: left;
+      }
+
+      .positioning-map {
+        min-height: 360px;
+        padding: 18px;
+      }
+
+      .brand-dot {
+        font-size: 10px;
+      }
+
+      table {
+        min-width: 860px;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html, body {
+        width: 210mm;
+        background: var(--print-bg) !important;
+        color: var(--print-text) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body::before,
+      body::after,
+      .noise,
+      .orb,
+      .topbar,
+      .hero-actions {
+        display: none !important;
+      }
+
+      .shell {
+        width: 190mm;
+      }
+
+      .hero,
+      .section {
+        min-height: auto;
+        padding: 12mm 0;
+        page-break-inside: avoid;
+      }
+
+      .section {
+        break-before: page;
+      }
+
+      .hero {
+        break-before: auto;
+      }
+
+      .glass,
+      .card,
+      .stat-tile,
+      .matrix-card,
+      .keyword-card,
+      .timeline-card,
+      .response-card,
+      .chart-panel,
+      .final-reco,
+      .radar-card,
+      .table-wrap,
+      .positioning-map,
+      .tabs,
+      .funnel {
+        background: var(--print-card) !important;
+        color: var(--print-text) !important;
+        border-color: var(--print-line) !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+
+      h1, h2, h3,
+      .gradient-text,
+      .metric-card .num,
+      .stat-tile .big,
+      .score-card .score {
+        color: var(--print-text) !important;
+        background: none !important;
+        -webkit-text-fill-color: var(--print-text) !important;
+      }
+
+      p,
+      .section-copy,
+      .hero-lead,
+      .card p,
+      td,
+      .small,
+      .label,
+      .muted,
+      .persona-row span:last-child,
+      .timeline-card ul,
+      .check span,
+      .accordion-content-inner,
+      .rec-item small {
+        color: #5a4037 !important;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual,
+      .radar-card::before,
+      .radar-card::after,
+      .donut,
+      .platform-orbit,
+      .positioning-map::before,
+      .positioning-map::after {
+        animation: none !important;
+      }
+
+      .grid.three,
+      .grid.four,
+      .persona-grid,
+      .keyword-board,
+      .timeline,
+      .market-strip,
+      .matrix,
+      .response-grid,
+      .architecture,
+      .dashboard-row,
+      .funnel,
+      .scenario-grid,
+      .final-reco {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .table-wrap {
+        overflow: visible;
+      }
+
+      table {
+        font-size: 10px;
+      }
+
+      th, td {
+        padding: 8px 9px;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <header class="topbar">
+    <a class="brand-lockup" href="#top" aria-label="Sampleton strategy dashboard">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <strong>Sampleton Strategy</strong>
+        <span>Performance Marketing Case Dashboard</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#market">Market</a>
+      <a href="#audience">Audience</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#campaigns">Campaigns</a>
+      <a href="#keywords">Keywords</a>
+      <a href="#funnel">CRO</a>
+      <a href="#forecast">Forecast</a>
+      <a href="#feedback">Client Feedback</a>
+      <a href="#launch">Launch Plan</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="shell hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> Google Ads Ecommerce Strategy</div>
+        <h1><span class="gradient-text">A sales engine for gaming headsets, not a generic media plan.</span></h1>
+        <p class="hero-lead">
+          This page demonstrates a complete approach for turning Sampleton Headphones into a focused US ecommerce acquisition system across Search, Shopping, Performance Max, remarketing, and conversion optimization.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#campaigns">Explore Strategy</a>
+          <a class="btn secondary" href="#forecast">View Forecast Logic</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="num" data-counter="5000" data-prefix="$">0</div>
+            <div class="label">Monthly launch budget mapped by funnel role</div>
+          </div>
+          <div class="metric-card">
+            <div class="num" data-counter="6">0</div>
+            <div class="label">Core Google Ads campaign streams</div>
+          </div>
+          <div class="metric-card">
+            <div class="num" data-counter="30">0</div>
+            <div class="label">Day launch and optimization roadmap</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-2">
+        <div class="radar-card">
+          <div class="radar-inner">
+            <div class="mini-top">
+              <div class="mini-title">
+                <strong>Cross-platform demand command center</strong>
+                <span>PC, console, Mac, VR, streaming, work, and gift purchase intent</span>
+              </div>
+              <div class="status-pill">Ready to launch</div>
+            </div>
+
+            <div class="platform-orbit">
+              <div class="headset-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M14 35v-8c0-10 8-18 18-18s18 8 18 18v8" stroke="#44e4ff" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M14 34h8v17h-5a3 3 0 0 1-3-3V34Zm28 0h8v17h-5a3 3 0 0 1-3-3V34Z" fill="#9d6cff" stroke="#dffaff" stroke-width="2"/>
+                  <path d="M42 49c-2 4-5 6-10 6" stroke="#41f2a6" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="orbit-tag">PC</div>
+              <div class="orbit-tag">PS5</div>
+              <div class="orbit-tag">Xbox</div>
+              <div class="orbit-tag">Switch</div>
+              <div class="orbit-tag">Mac</div>
+              <div class="orbit-tag">VR</div>
+            </div>
+
+            <div class="signal-grid">
+              <div class="signal"><b>Clear voice intent</b><div class="signal-line"><span style="--w: 88%"></span></div></div>
+              <div class="signal"><b>Platform certainty</b><div class="signal-line"><span style="--w: 94%"></span></div></div>
+              <div class="signal"><b>Comfort proof</b><div class="signal-line"><span style="--w: 82%"></span></div></div>
+              <div class="signal"><b>Cart recovery</b><div class="signal-line"><span style="--w: 76%"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="market" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">01. Market intelligence</div>
+            <h2>The market is attractive, but hostile to unfocused brands.</h2>
+          </div>
+          <p class="section-copy">
+            The strategic opportunity is not simply “gaming headsets.” It is practical premium performance for buyers who need compatibility certainty, long-session comfort, clean voice, and a safer purchase decision.
+          </p>
+        </div>
+
+        <div class="market-strip reveal delay-1">
+          <div class="stat-tile">
+            <span class="trend">Market pull</span>
+            <div class="big">$1.07B</div>
+            <div class="small">Estimated 2026 US gaming headset market size used as the planning context.</div>
+          </div>
+          <div class="stat-tile">
+            <span class="trend">Growth</span>
+            <div class="big">6.14%</div>
+            <div class="small">Projected market CAGR creates room for focused challengers.</div>
+          </div>
+          <div class="stat-tile">
+            <span class="trend">Wireless</span>
+            <div class="big">11.32%</div>
+            <div class="small">Wireless growth supports higher-intent product and Shopping focus.</div>
+          </div>
+          <div class="stat-tile">
+            <span class="trend">Reach</span>
+            <div class="big">205M+</div>
+            <div class="small">US gamers form a large audience, but paid search must target intent, not stereotypes.</div>
+          </div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="chart-panel glass reveal">
+            <div class="chart-title">
+              <h3>Demand signals to prioritize</h3>
+              <span>Budget must follow the strongest purchase reasons, not the broadest keywords.</span>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-item"><div class="bar-label">Platform compatibility</div><div class="bar-track"><span class="bar-fill" style="--value: 94%"></span></div><div class="bar-value">94</div></div>
+              <div class="bar-item"><div class="bar-label">Wireless convenience</div><div class="bar-track"><span class="bar-fill" style="--value: 88%"></span></div><div class="bar-value">88</div></div>
+              <div class="bar-item"><div class="bar-label">Mic clarity</div><div class="bar-track"><span class="bar-fill" style="--value: 84%"></span></div><div class="bar-value">84</div></div>
+              <div class="bar-item"><div class="bar-label">Comfort</div><div class="bar-track"><span class="bar-fill" style="--value: 79%"></span></div><div class="bar-value">79</div></div>
+              <div class="bar-item"><div class="bar-label">Premium value</div><div class="bar-track"><span class="bar-fill" style="--value: 72%"></span></div><div class="bar-value">72</div></div>
+              <div class="bar-item"><div class="bar-label">Gift intent</div><div class="bar-track"><span class="bar-fill" style="--value: 62%"></span></div><div class="bar-value">62</div></div>
+            </div>
+          </div>
+
+          <div class="chart-panel glass reveal delay-2">
+            <div class="chart-title">
+              <h3>Strategic market read</h3>
+              <span>Where Sampleton can win first.</span>
+            </div>
+            <div class="matrix">
+              <div class="matrix-card"><strong>Start narrow</strong><p>Generic “gaming headset” terms are too noisy for a $5,000 budget. Start with specific platform and buyer-intent clusters.</p></div>
+              <div class="matrix-card"><strong>Separate wired and wireless</strong><p>Wired still matters for competitive players. Wireless has the stronger growth story and Shopping angle.</p></div>
+              <div class="matrix-card"><strong>Sell confidence</strong><p>Unknown brands must prove compatibility, returns, warranty, reviews, mic quality, and comfort quickly.</p></div>
+              <div class="matrix-card"><strong>Build around platforms</strong><p>PS5, Xbox, PC, Switch, Mac, and VR buyers ask different questions before buying.</p></div>
+              <div class="matrix-card"><strong>Use Shopping carefully</strong><p>Feed quality, titles, images, GTINs, availability, price, and reviews can make or break sales.</p></div>
+              <div class="matrix-card"><strong>CRO is not optional</strong><p>The landing page must answer objections before the buyer returns to Razer, SteelSeries, or Amazon.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audience" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">02. Audience strategy</div>
+            <h2>Target the buying problem, not the “gamer” stereotype.</h2>
+          </div>
+          <p class="section-copy">
+            The campaign should lead with intent: platform, feature, price, use case, pain point, and comparison behavior. Audience layers support the search structure, but they should not replace intent.
+          </p>
+        </div>
+
+        <div class="persona-grid">
+          <article class="persona glass reveal">
+            <div class="persona-top">
+              <h3>Competitive Corey</h3>
+              <p>FPS player who cares about latency, footsteps, and team communication.</p>
+            </div>
+            <div class="persona-body">
+              <div class="persona-row"><span>Age</span><span>18 to 34</span></div>
+              <div class="persona-row"><span>Platform</span><span>PC, PlayStation, Xbox</span></div>
+              <div class="persona-row"><span>Need</span><span>Hear first, react faster, avoid mic failure during ranked play.</span></div>
+              <div class="persona-row"><span>Message</span><span>Low latency sound, clear squad chat, competitive comfort.</span></div>
+              <div class="persona-row"><span>Campaign</span><span>High-intent Search, Platform Search, Shopping.</span></div>
+            </div>
+          </article>
+
+          <article class="persona glass reveal delay-1">
+            <div class="persona-top">
+              <h3>Creator Casey</h3>
+              <p>Streamer or content creator who needs voice credibility and comfort.</p>
+            </div>
+            <div class="persona-body">
+              <div class="persona-row"><span>Age</span><span>18 to 30</span></div>
+              <div class="persona-row"><span>Platform</span><span>PC, Mac, Twitch, YouTube, TikTok</span></div>
+              <div class="persona-row"><span>Need</span><span>Clean mic, wireless freedom, aesthetic setup, reliable long sessions.</span></div>
+              <div class="persona-row"><span>Message</span><span>Sound clear on Discord, stream, and recorded clips.</span></div>
+              <div class="persona-row"><span>Campaign</span><span>Feature Search, YouTube test, remarketing.</span></div>
+            </div>
+          </article>
+
+          <article class="persona glass reveal delay-2">
+            <div class="persona-top">
+              <h3>Hybrid Jordan</h3>
+              <p>Uses one headset for gaming, calls, Discord, and home office.</p>
+            </div>
+            <div class="persona-body">
+              <div class="persona-row"><span>Age</span><span>25 to 44</span></div>
+              <div class="persona-row"><span>Platform</span><span>PC, Mac, console, mobile, work calls</span></div>
+              <div class="persona-row"><span>Need</span><span>Comfort, battery, Bluetooth, simple setup, practical premium value.</span></div>
+              <div class="persona-row"><span>Message</span><span>One headset that handles work, Discord, and weekend gaming.</span></div>
+              <div class="persona-row"><span>Campaign</span><span>Platform Search, Shopping, remarketing.</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competitors" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">03. Competitor battlefield</div>
+            <h2>Sampleton must own confidence in the mid-premium gap.</h2>
+          </div>
+          <p class="section-copy">
+            Razer, SteelSeries, HyperX, Logitech G, and Turtle Beach dominate trust. Cheap Amazon brands dominate price. Sampleton needs a clearer reason to choose it than “good headset.”
+          </p>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="positioning-map reveal">
+            <div class="axis top">High trust</div>
+            <div class="axis bottom">Low trust</div>
+            <div class="axis left">Low price</div>
+            <div class="axis right">Premium price</div>
+            <div class="brand-dot" style="--x: 76%; --y: 24%;">Razer</div>
+            <div class="brand-dot" style="--x: 70%; --y: 30%;">SteelSeries</div>
+            <div class="brand-dot" style="--x: 62%; --y: 34%;">Logitech G</div>
+            <div class="brand-dot" style="--x: 55%; --y: 38%;">HyperX</div>
+            <div class="brand-dot" style="--x: 39%; --y: 46%;">Turtle Beach</div>
+            <div class="brand-dot" style="--x: 24%; --y: 76%;">Amazon Value</div>
+            <div class="brand-dot sampleton" style="--x: 57%; --y: 52%;">Sampleton target</div>
+          </div>
+
+          <div class="table-wrap reveal delay-2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Competitor</th>
+                  <th>What they win on</th>
+                  <th>Sampleton attack angle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="tag">Razer</span></td><td>Esports credibility, gamer identity, premium feel.</td><td>Better value, simpler setup, clearer warranty, comfort proof.</td></tr>
+                <tr><td><span class="tag">SteelSeries</span></td><td>Audio software, dual wireless, strong review ecosystem.</td><td>Simpler buying path, clearer compatibility pages, lower friction bundles.</td></tr>
+                <tr><td><span class="tag">HyperX</span></td><td>Comfort, reliability, strong legacy products.</td><td>Newer wireless story, better mic promise, battery angle.</td></tr>
+                <tr><td><span class="tag">Logitech G</span></td><td>Retail reach, ecosystem, brand trust.</td><td>Mic demos, direct comparison, fewer software complaints.</td></tr>
+                <tr><td><span class="tag">Turtle Beach</span></td><td>Console focus, value, battery messaging.</td><td>Better build quality, premium comfort, stronger cross-platform story.</td></tr>
+                <tr><td><span class="tag">Amazon value brands</span></td><td>Price, coupons, review count.</td><td>Warranty, quality control, trust, support, safer purchase promise.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid four" style="margin-top:18px;">
+          <div class="card glass hover-lift reveal"><div class="icon-badge">01</div><h3>Compatibility confusion</h3><p>Turn platform uncertainty into landing pages, badges, setup steps, and platform-specific ads.</p></div>
+          <div class="card glass hover-lift reveal delay-1"><div class="icon-badge">02</div><h3>Mic skepticism</h3><p>Add voice demos, noisy-room examples, Discord proof, and direct product-page evidence.</p></div>
+          <div class="card glass hover-lift reveal delay-2"><div class="icon-badge">03</div><h3>Comfort anxiety</h3><p>Show long-session testing, cushion materials, weight, clamp pressure, and glasses comfort.</p></div>
+          <div class="card glass hover-lift reveal delay-3"><div class="icon-badge">04</div><h3>Unknown-brand risk</h3><p>Use reviews, warranties, return policy, shipping clarity, comparison tables, and support proof.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="campaigns" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">04. Campaign architecture</div>
+            <h2>A $5,000 budget needs strict role separation.</h2>
+          </div>
+          <p class="section-copy">
+            The structure protects spend by separating brand capture, high-intent search, platform intent, Shopping or Performance Max, remarketing, and controlled demand testing.
+          </p>
+        </div>
+
+        <div class="architecture">
+          <div class="budget-donut glass reveal">
+            <div class="donut"></div>
+            <div class="donut-center">
+              <strong>$5,000</strong>
+              <span>Monthly media budget</span>
+            </div>
+          </div>
+
+          <div class="glass card reveal delay-1">
+            <div class="chart-title">
+              <h3>Budget allocation by campaign role</h3>
+              <span>Search and Shopping get priority because sales, not traffic, is the goal.</span>
+            </div>
+            <div class="campaign-list">
+              <div class="campaign-row"><div class="campaign-name"><strong>Brand Search</strong><span>Capture existing demand and protect brand intent.</span></div><div class="campaign-percent">10%</div><div class="campaign-budget">$500</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>High-Intent Search</strong><span>Bottom-funnel product and feature searches.</span></div><div class="campaign-percent">30%</div><div class="campaign-budget">$1,500</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Platform Search</strong><span>PS5, Xbox, PC, Switch, Mac, and VR intent.</span></div><div class="campaign-percent">20%</div><div class="campaign-budget">$1,000</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Shopping or PMax</strong><span>Product feed-led ecommerce acquisition.</span></div><div class="campaign-percent">25%</div><div class="campaign-budget">$1,250</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>Remarketing</strong><span>Product viewers, cart abandoners, checkout abandoners.</span></div><div class="campaign-percent">10%</div><div class="campaign-budget">$500</div></div>
+              <div class="campaign-row"><div class="campaign-name"><strong>YouTube or Demand Gen Test</strong><span>Small controlled creative test after tracking is ready.</span></div><div class="campaign-percent">5%</div><div class="campaign-budget">$250</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap reveal" style="margin-top:18px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Campaign</th>
+                <th>Ad groups</th>
+                <th>Landing page logic</th>
+                <th>Primary KPI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>High-Intent Search</td><td>Gaming headset, wireless, wired, headset with mic, premium, best gaming headset.</td><td>Category pages with reviews, product proof, comparison, clear CTA.</td><td>ROAS, CPA, revenue</td></tr>
+              <tr><td>Platform Search</td><td>PC, PS5, Xbox, Nintendo Switch, VR, Mac compatible.</td><td>Platform-specific pages with badges, compatibility FAQs, setup clarity.</td><td>CVR, ROAS, purchases</td></tr>
+              <tr><td>Shopping or PMax</td><td>Wireless, wired, premium, platform-specific, best sellers.</td><td>Clean feed titles, strong images, product reviews, competitive pricing.</td><td>Product-level ROAS</td></tr>
+              <tr><td>Remarketing</td><td>Viewers, cart abandoners, checkout abandoners, past customers.</td><td>Cart recovery, warranty reassurance, bundle or shipping incentive tests.</td><td>Recovered revenue</td></tr>
+              <tr><td>YouTube or Demand Gen</td><td>Mic demo, cross-platform setup, comfort story.</td><td>Video-first proof and warm audience retargeting.</td><td>Assisted conversions</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="keywords" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">05. Keyword strategy</div>
+            <h2>Intent buckets convert better than one giant keyword list.</h2>
+          </div>
+          <p class="section-copy">
+            Start with exact and phrase match coverage for high-intent terms. Broad match can be tested later after enough conversion data exists and negative keyword discipline is proven.
+          </p>
+        </div>
+
+        <div class="keyword-board">
+          <div class="keyword-card reveal" data-index="01"><h3>Platform intent</h3><ul><li>gaming headset for PS5</li><li>Xbox gaming headset</li><li>PC gaming headset wireless</li><li>Nintendo Switch headset</li><li>VR gaming headset</li></ul></div>
+          <div class="keyword-card reveal delay-1" data-index="02"><h3>Feature intent</h3><ul><li>wireless gaming headset with mic</li><li>low latency gaming headset</li><li>noise cancelling gaming headset</li><li>surround sound gaming headset</li><li>gaming headset with clear mic</li></ul></div>
+          <div class="keyword-card reveal delay-2" data-index="03"><h3>Price intent</h3><ul><li>best gaming headset under 150</li><li>gaming headset under 200</li><li>premium gaming headset</li><li>best value wireless headset</li><li>gaming headset deals</li></ul></div>
+          <div class="keyword-card reveal" data-index="04"><h3>Use-case intent</h3><ul><li>headset for streaming</li><li>headset for Discord</li><li>best headset for FPS games</li><li>gaming headset for work calls</li><li>headset for Twitch streaming</li></ul></div>
+          <div class="keyword-card reveal delay-1" data-index="05"><h3>Problem intent</h3><ul><li>comfortable gaming headset</li><li>gaming headset for glasses</li><li>lightweight gaming headset</li><li>headset for long gaming sessions</li><li>comfortable wireless headset</li></ul></div>
+          <div class="keyword-card reveal delay-2" data-index="06"><h3>Competitor intent</h3><ul><li>Razer alternative headset</li><li>SteelSeries alternative</li><li>HyperX alternative</li><li>Logitech G headset alternative</li><li>Turtle Beach alternative</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="funnel" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">06. CRO and funnel control</div>
+            <h2>Landing page quality controls ROAS as much as bidding.</h2>
+          </div>
+          <p class="section-copy">
+            Sending every click to a generic product grid is weak. The website must answer the exact buyer question behind the keyword, then remove uncertainty before checkout.
+          </p>
+        </div>
+
+        <div class="funnel glass reveal">
+          <div class="funnel-viz">
+            <div class="funnel-step" style="--fw: 96%;"><strong>Qualified click</strong><span>Search, Shopping, PMax</span></div>
+            <div class="funnel-step" style="--fw: 84%;"><strong>Matched landing page</strong><span>Platform or feature page</span></div>
+            <div class="funnel-step" style="--fw: 72%;"><strong>Product confidence</strong><span>Reviews, mic, comfort, warranty</span></div>
+            <div class="funnel-step" style="--fw: 58%;"><strong>Cart confidence</strong><span>Shipping, returns, payment clarity</span></div>
+            <div class="funnel-step" style="--fw: 44%;"><strong>Purchase</strong><span>Revenue and ROAS</span></div>
+          </div>
+
+          <div class="checklist">
+            <div class="check"><i>✓</i><div><strong>Above the fold must answer the keyword.</strong><span>PS5 buyers should see PS5 compatibility. Streamers should see mic proof. Comfort buyers should see cushion and fatigue proof.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Product comparison needs to be visible.</strong><span>Buyers are comparing against Razer, SteelSeries, HyperX, Logitech G, and Amazon options.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Trust must appear before checkout.</strong><span>Shipping, return policy, warranty, reviews, payment options, and support cannot hide in footer links.</span></div></div>
+            <div class="check"><i>✓</i><div><strong>Cart recovery must be built before scaling.</strong><span>Remarketing, abandoned cart email, free-shipping threshold, and bundle testing are part of the sales system.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="measurement" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">07. Measurement model</div>
+            <h2>Measure revenue quality, not just media activity.</h2>
+          </div>
+          <p class="section-copy">
+            The reporting system must separate business KPIs from diagnostic KPIs. CTR and CPC matter, but only as supporting signals for revenue, ROAS, CPA, CVR, and product profitability.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <div class="card glass hover-lift reveal">
+            <div class="icon-badge">A</div>
+            <h3>Business KPIs</h3>
+            <p>Revenue, ROAS, purchases, CPA, CAC, AOV, conversion rate, gross profit estimate, new customer acquisition cost, and budget pacing.</p>
+            <div class="pill-row"><span class="pill">Revenue</span><span class="pill">ROAS</span><span class="pill">CPA</span><span class="pill">AOV</span></div>
+          </div>
+          <div class="card glass hover-lift reveal delay-1">
+            <div class="icon-badge">B</div>
+            <h3>Diagnostic KPIs</h3>
+            <p>CTR, CPC, impression share, search lost IS budget, search lost IS rank, add-to-cart rate, checkout start rate, and device performance.</p>
+            <div class="pill-row"><span class="pill">CTR</span><span class="pill">CPC</span><span class="pill">IS</span><span class="pill">ATC</span></div>
+          </div>
+          <div class="card glass hover-lift reveal delay-2">
+            <div class="icon-badge">C</div>
+            <h3>Funnel KPIs</h3>
+            <p>Landing page CVR, product page CVR, checkout completion rate, cart abandonment rate, product-level ROAS, audience-level ROAS, and keyword-level ROAS.</p>
+            <div class="pill-row"><span class="pill">CVR</span><span class="pill">Checkout</span><span class="pill">Cart</span><span class="pill">Product ROAS</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="forecast" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">08. Forecast preview</div>
+            <h2>The forecast should show scenarios, assumptions, and breakpoints.</h2>
+          </div>
+          <p class="section-copy">
+            The spreadsheet should not pretend certainty. It should make assumptions visible and show how CPC, CVR, AOV, and product mix change revenue and ROAS.
+          </p>
+        </div>
+
+        <div class="tabs glass reveal">
+          <div class="tab-buttons" role="tablist">
+            <button class="tab-btn active" data-tab="base">Realistic Scenario</button>
+            <button class="tab-btn" data-tab="conservative">Conservative Scenario</button>
+            <button class="tab-btn" data-tab="aggressive">Aggressive Scenario</button>
+            <button class="tab-btn" data-tab="sheet">Spreadsheet Structure</button>
+          </div>
+
+          <div id="base" class="tab-panel active">
+            <div class="scenario-grid">
+              <div class="score-card">
+                <div class="score">2.4x</div>
+                <div class="score-label">Illustrative realistic ROAS target</div>
+              </div>
+              <div>
+                <div class="mini-kpis">
+                  <div class="mini-kpi"><strong>$5,000</strong><span>Spend</span></div>
+                  <div class="mini-kpi"><strong>$1.85</strong><span>Avg CPC</span></div>
+                  <div class="mini-kpi"><strong>2,703</strong><span>Clicks</span></div>
+                  <div class="mini-kpi"><strong>2.0%</strong><span>CVR</span></div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Metric</th><th>Value</th><th>How to interpret it</th></tr></thead>
+                    <tbody>
+                      <tr><td>Orders</td><td>54</td><td>Based on clicks multiplied by conversion rate.</td></tr>
+                      <tr><td>AOV</td><td>$220</td><td>Uses midpoint logic across $100 to $400 product range.</td></tr>
+                      <tr><td>Revenue</td><td>$11,891</td><td>Orders multiplied by average order value.</td></tr>
+                      <tr><td>CPA</td><td>$92.50</td><td>Spend divided by purchases.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="conservative" class="tab-panel">
+            <div class="scenario-grid">
+              <div class="score-card">
+                <div class="score">1.5x</div>
+                <div class="score-label">Conservative ROAS guardrail</div>
+              </div>
+              <div>
+                <div class="mini-kpis">
+                  <div class="mini-kpi"><strong>$5,000</strong><span>Spend</span></div>
+                  <div class="mini-kpi"><strong>$2.30</strong><span>Avg CPC</span></div>
+                  <div class="mini-kpi"><strong>2,174</strong><span>Clicks</span></div>
+                  <div class="mini-kpi"><strong>1.6%</strong><span>CVR</span></div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Metric</th><th>Value</th><th>How to interpret it</th></tr></thead>
+                    <tbody>
+                      <tr><td>Orders</td><td>35</td><td>Lower conversion scenario for weak trust or checkout friction.</td></tr>
+                      <tr><td>AOV</td><td>$210</td><td>Assumes price pressure or lower-priced product mix.</td></tr>
+                      <tr><td>Revenue</td><td>$7,305</td><td>Enough to identify problems, not enough to scale aggressively.</td></tr>
+                      <tr><td>CPA</td><td>$143.68</td><td>Needs immediate CRO and search-term cleanup.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="aggressive" class="tab-panel">
+            <div class="scenario-grid">
+              <div class="score-card">
+                <div class="score">3.8x</div>
+                <div class="score-label">Aggressive upside scenario</div>
+              </div>
+              <div>
+                <div class="mini-kpis">
+                  <div class="mini-kpi"><strong>$5,000</strong><span>Spend</span></div>
+                  <div class="mini-kpi"><strong>$1.55</strong><span>Avg CPC</span></div>
+                  <div class="mini-kpi"><strong>3,226</strong><span>Clicks</span></div>
+                  <div class="mini-kpi"><strong>2.8%</strong><span>CVR</span></div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Metric</th><th>Value</th><th>How to interpret it</th></tr></thead>
+                    <tbody>
+                      <tr><td>Orders</td><td>90</td><td>Requires strong landing pages, trust, feed quality, and search intent.</td></tr>
+                      <tr><td>AOV</td><td>$210</td><td>Can improve with bundles, premium product push, and free-shipping threshold.</td></tr>
+                      <tr><td>Revenue</td><td>$18,968</td><td>Likely only after optimization, not day one.</td></tr>
+                      <tr><td>CPA</td><td>$55.91</td><td>Candidate for budget scaling if margin supports it.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="sheet" class="tab-panel">
+            <div class="grid three">
+              <div class="card glass"><h3>Forecast tabs</h3><p>Assumptions, Budget Allocation, Campaign Forecast, Channel Forecast Summary, ROAS Scenarios, KPI Targets, Monthly Reporting Template, Optimization Tracker, Notes.</p></div>
+              <div class="card glass"><h3>Forecast inputs</h3><p>Budget, CPC, CTR, impressions, clicks, CVR, orders, AOV, revenue, CPA, ROAS, conservative, realistic, and aggressive scenario assumptions.</p></div>
+              <div class="card glass"><h3>Forecast outputs</h3><p>Spend, clicks, orders, revenue, CPA, ROAS, break-even ROAS, required CVR, required AOV, and required CPC to hit target ROAS.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">09. Client feedback handling</div>
+            <h2>Client concerns should trigger diagnosis, not guesswork.</h2>
+          </div>
+          <p class="section-copy">
+            The deck should show that you can respond like an operator: isolate the cause, verify tracking, separate traffic quality from funnel issues, then fix in priority order.
+          </p>
+        </div>
+
+        <div class="response-grid">
+          <article class="response-card glass reveal">
+            <div class="response-head">
+              <h3>Feedback A: ROAS is dropping</h3>
+              <p>Diagnosis should separate media inflation, tracking issues, conversion decline, product mix changes, and competitor pressure.</p>
+            </div>
+            <div class="accordion">
+              <div class="accordion-item active">
+                <button class="accordion-button"><span>What can be the reason?</span><span>+</span></button>
+                <div class="accordion-content" style="max-height: 180px;"><div class="accordion-content-inner">CPC increased, conversion rate dropped, AOV fell, tracking broke, weaker campaign got more budget, competitors launched discounts, bad search terms entered, mobile checkout worsened, or product feed quality declined.</div></div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button"><span>What should we check?</span><span>+</span></button>
+                <div class="accordion-content"><div class="accordion-content-inner">Check conversion tracking, revenue tracking, search terms, campaign ROAS, product-level ROAS, device performance, landing page CVR, AOV trend, cart abandonment rate, product feed status, and competitor offers.</div></div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button"><span>How can we increase ROAS?</span><span>+</span></button>
+                <div class="accordion-content"><div class="accordion-content-inner">Pause low-ROAS segments, add negatives, move budget to winners, improve feed titles, push best sellers, test stronger offers, improve landing pages, recover cart abandoners, and use tROAS only after enough conversion volume exists.</div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="response-card glass reveal delay-1">
+            <div class="response-head">
+              <h3>Feedback B: Traffic but sales are low</h3>
+              <p>This is a funnel and traffic-quality problem. The fix is not simply “more budget.”</p>
+            </div>
+            <div class="accordion">
+              <div class="accordion-item active">
+                <button class="accordion-button"><span>Likely causes</span><span>+</span></button>
+                <div class="accordion-content" style="max-height: 180px;"><div class="accordion-content-inner">Wrong keyword intent, poor landing page match, weak reviews, unclear shipping, unclear returns, weak warranty proof, high price friction, slow mobile page, checkout friction, no express payment, or weak cart recovery.</div></div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button"><span>What to improve first?</span><span>+</span></button>
+                <div class="accordion-content"><div class="accordion-content-inner">Review search terms, exclude low-intent traffic, match ad groups to specific pages, add comparison tables, show reviews near CTA, show shipping cost early, clarify returns, add trust badges, and simplify mobile checkout.</div></div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-button"><span>Sales recovery plan</span><span>+</span></button>
+                <div class="accordion-content"><div class="accordion-content-inner">Launch cart abandonment remarketing, abandoned cart email, limited-time offer test, bundle test, free-shipping threshold, product-specific landing pages, express checkout, and mobile page-speed cleanup.</div></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="launch" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">10. 30-day execution roadmap</div>
+            <h2>A professional launch is built in controlled phases.</h2>
+          </div>
+          <p class="section-copy">
+            The first month should not chase scale immediately. It should verify tracking, protect the budget, read search terms, fix funnel leaks, and then reallocate toward winners.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-card glass reveal">
+            <div class="week">W1</div>
+            <h3>Build and QA</h3>
+            <ul>
+              <li>Verify GA4 ecommerce and Google Ads tracking</li>
+              <li>Check Merchant Center and product feed</li>
+              <li>Finalize keyword research and negatives</li>
+              <li>Build campaigns, ads, extensions, and forecast</li>
+              <li>QA landing pages and conversion actions</li>
+            </ul>
+          </div>
+          <div class="timeline-card glass reveal delay-1">
+            <div class="week">W2</div>
+            <h3>Launch and protect</h3>
+            <ul>
+              <li>Launch with strict budget pacing</li>
+              <li>Monitor spend, disapprovals, tracking, and URLs</li>
+              <li>Review early search terms daily</li>
+              <li>Cut waste quickly</li>
+              <li>Protect bottom-funnel campaigns</li>
+            </ul>
+          </div>
+          <div class="timeline-card glass reveal delay-2">
+            <div class="week">W3</div>
+            <h3>Optimize and recover</h3>
+            <ul>
+              <li>Shift budget toward early winners</li>
+              <li>Pause weak ad groups</li>
+              <li>Add negative keywords</li>
+              <li>Launch remarketing and cart recovery</li>
+              <li>Test bundle or shipping offer</li>
+            </ul>
+          </div>
+          <div class="timeline-card glass reveal delay-3">
+            <div class="week">W4</div>
+            <h3>Report and scale</h3>
+            <ul>
+              <li>Compare forecast against actuals</li>
+              <li>Identify winning products and queries</li>
+              <li>Report ROAS, CPA, CVR, AOV, and revenue</li>
+              <li>Build next-month plan</li>
+              <li>Recommend scaling areas and CRO fixes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="final-reco reveal">
+          <div>
+            <div class="section-kicker">Final recommendation</div>
+            <h2>Do not sell a headset. Sell buying confidence.</h2>
+            <p>
+              Sampleton should be positioned as the practical premium headset brand for players who switch between PC, console, Discord, streaming, and work. The system should connect high-intent search, product-feed quality, platform-specific landing pages, and cart recovery into one disciplined acquisition engine.
+            </p>
+          </div>
+
+          <div class="recommendation-stack">
+            <div class="rec-item"><span>1</span><div><strong>Own cross-platform certainty.</strong><small>Build separate platform pages for PS5, Xbox, PC, Switch, Mac, and VR. Match ads to those pages.</small></div></div>
+            <div class="rec-item"><span>2</span><div><strong>Prove mic, comfort, and trust.</strong><small>Use demos, review blocks, warranty, returns, shipping clarity, and direct competitor comparisons.</small></div></div>
+            <div class="rec-item"><span>3</span><div><strong>Keep the first month disciplined.</strong><small>Exact and phrase match first, Shopping with clean feed, remarketing after verified tracking, small YouTube test only.</small></div></div>
+            <div class="rec-item"><span>4</span><div><strong>Report like an operator.</strong><small>Separate revenue KPIs from diagnostic KPIs and translate every issue into a clear next action.</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <p>Sampleton Headphones Performance Marketing Strategy Dashboard | Built as a GitHub Pages-ready standalone HTML page.</p>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal, .chart-panel, .funnel');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => io.observe(el));
+
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-42% 0px -52% 0px', threshold: 0 });
+    sections.forEach(section => navObserver.observe(section));
+
+    function animateCounter(el) {
+      const target = Number(el.dataset.counter || 0);
+      const prefix = el.dataset.prefix || '';
+      const duration = 1200;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(target * eased);
+        el.textContent = prefix + val.toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || entry.target.dataset.done) return;
+        entry.target.dataset.done = '1';
+        animateCounter(entry.target);
+      });
+    }, { threshold: 0.7 });
+
+    document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const parent = item.parentElement;
+        parent.querySelectorAll('.accordion-item').forEach(sibling => {
+          if (sibling !== item) {
+            sibling.classList.remove('active');
+            sibling.querySelector('.accordion-content').style.maxHeight = 0;
+          }
+        });
+        item.classList.toggle('active');
+        if (item.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          content.style.maxHeight = 0;
+        }
+      });
+    });
+
+    document.querySelectorAll('.radar-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
+        const y = ((e.clientY - r.top) / r.height - 0.5) * -10;
+        card.style.transform = `translateY(-10px) rotateX(${y}deg) rotateY(${x}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>
