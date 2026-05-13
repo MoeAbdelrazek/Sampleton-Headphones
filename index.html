@@ -143,7 +143,7 @@
       position: sticky;
       top: 16px;
       z-index: 50;
-      width: min(var(--max), calc(100% - 40px));
+      width: min(1420px, calc(100% - 40px));
       margin: 16px auto 0;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -159,8 +159,9 @@
     .brand-lockup {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: max-content;
+      flex-shrink: 0;
     }
 
     .brand-mark {
@@ -190,7 +191,7 @@
 
     .brand-text strong {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text);
@@ -198,17 +199,20 @@
 
     .brand-text span {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 5px;
-      overflow-x: auto;
+      justify-content: flex-end;
+      gap: 2px;
+      overflow: visible;
       scrollbar-width: none;
-      padding-left: 16px;
+      padding-left: 10px;
+      flex: 1;
+      min-width: 0;
     }
 
     .nav::-webkit-scrollbar {
@@ -216,9 +220,9 @@
     }
 
     .nav a {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      padding: 10px 12px;
+      padding: 9px 9px;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: 0.25s ease;
@@ -2251,6 +2255,8 @@
       }
 
       .nav {
+        justify-content: flex-start;
+        overflow-x: auto;
         padding-left: 0;
         margin-top: 10px;
       }
@@ -2492,12 +2498,12 @@
       <a href="#competitors">Competitors</a>
       <a href="#campaigns">Campaigns</a>
       <a href="#rationale">Rationale</a>
-      <a href="#channels">Support Recs</a>
+      <a href="#channels">Support</a>
       <a href="#execution-system">Execution</a>
       <a href="#keywords">Keywords</a>
       <a href="#funnel">CRO</a>
       <a href="#forecast">Forecast</a>
-      <a href="#feedback">Client Feedback</a>
+      <a href="#feedback">Feedback</a>
     </nav>
   </header>
 
