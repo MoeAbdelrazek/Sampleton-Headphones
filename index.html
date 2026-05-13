@@ -358,7 +358,7 @@
       position: absolute;
       inset: 0;
       transform: translateX(-120%);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,246,228,0.14), transparent);
       transition: transform 0.65s ease;
     }
 
@@ -497,13 +497,14 @@
     }
 
     .status-pill {
-      color: #07111d;
-      background: var(--green);
+      color: var(--soft);
+      background: rgba(217, 196, 154, 0.08);
+      border: 1px solid rgba(217, 196, 154, 0.18);
       border-radius: 999px;
       padding: 8px 10px;
       font-size: 12px;
       font-weight: 850;
-      box-shadow: 0 0 22px rgba(65,242,166,0.28);
+      box-shadow: none;
       white-space: nowrap;
     }
 
@@ -1782,6 +1783,71 @@
     .delay-2 { transition-delay: 0.16s; }
     .delay-3 { transition-delay: 0.24s; }
 
+
+    .source-note {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(217, 196, 154, 0.18);
+      background: rgba(255, 246, 228, 0.045);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .source-note strong {
+      color: var(--soft);
+      font-weight: 850;
+    }
+
+    .source-note a {
+      color: var(--soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .source-note.inline {
+      max-width: 980px;
+      margin: 18px auto 0;
+      text-align: center;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 12px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .reference-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 246, 228, 0.045);
+    }
+
+    .reference-item strong {
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .reference-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .reference-item a {
+      color: var(--soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 1100px) {
       .hero,
       .dashboard-row,
@@ -1894,6 +1960,10 @@
 
       .brand-dot {
         font-size: 10px;
+      }
+
+      .reference-item {
+        grid-template-columns: 1fr;
       }
 
       table {
@@ -2068,13 +2138,13 @@
       <a href="#forecast">Forecast</a>
       <a href="#feedback">Client Feedback</a>
       <a href="#launch">Launch Plan</a>
+      <a href="#references">References</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="shell hero">
       <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> Google Ads Ecommerce Strategy</div>
         <h1><span class="gradient-text">Sampleton Headphones Google Ads Growth Strategy</span></h1>
         <p class="hero-lead">
           A structured plan to increase US ecommerce sales through Google Search, Shopping, Performance Max, remarketing, conversion tracking, and landing page optimization.
@@ -2174,6 +2244,14 @@
           </div>
         </div>
 
+
+        <div class="source-note inline reveal">
+          <strong>Research references:</strong>
+          Market size and CAGR benchmarks are based on Mordor Intelligence’s U.S. Gaming Headsets Market analysis. The U.S. gamer population benchmark is based on the Entertainment Software Association’s 2025 Essential Facts release.
+          <a href="https://www.mordorintelligence.com/industry-reports/united-states-gaming-headsets-market" target="_blank" rel="noopener">Mordor Intelligence</a> ·
+          <a href="https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/" target="_blank" rel="noopener">ESA 2025</a>
+        </div>
+
         <div class="dashboard-row">
           <div class="chart-panel glass reveal">
             <div class="chart-title">
@@ -2187,6 +2265,9 @@
               <div class="bar-item"><div class="bar-label">Comfort</div><div class="bar-track"><span class="bar-fill" style="--value: 79%"></span></div><div class="bar-value">79</div></div>
               <div class="bar-item"><div class="bar-label">Premium value</div><div class="bar-track"><span class="bar-fill" style="--value: 72%"></span></div><div class="bar-value">72</div></div>
               <div class="bar-item"><div class="bar-label">Gift intent</div><div class="bar-track"><span class="bar-fill" style="--value: 62%"></span></div><div class="bar-value">62</div></div>
+            </div>
+            <div class="source-note">
+              <strong>Basis:</strong> Demand priorities are derived from market growth signals, product category review, competitor product positioning, and the case research pack. These scores are strategic prioritization indexes, not market-share percentages.
             </div>
           </div>
 
@@ -2218,6 +2299,12 @@
           <p class="section-copy">
             The audience strategy is organized by search intent, platform, product need, price sensitivity, and funnel stage. Audience layers support the campaign structure but do not replace keyword intent.
           </p>
+        </div>
+
+        <div class="source-note inline reveal">
+          <strong>Research references:</strong>
+          Audience framing uses the ESA 2025 gamer-demographic benchmark and Sampleton’s product scope across Mac, PC, Xbox, PlayStation, VR, and Nintendo.
+          <a href="https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/" target="_blank" rel="noopener">ESA 2025</a>
         </div>
 
         <div class="persona-grid">
@@ -2314,6 +2401,16 @@
           </div>
         </div>
 
+        <div class="source-note inline reveal">
+          <strong>Competitor reference basis:</strong>
+          Competitor positioning is informed by official product category pages and current public headset comparisons for Razer, SteelSeries, HyperX, Logitech G, and Turtle Beach.
+          <a href="https://www.razer.com/pc/gaming-headsets-and-audio" target="_blank" rel="noopener">Razer</a> ·
+          <a href="https://steelseries.com/gaming-headsets" target="_blank" rel="noopener">SteelSeries</a> ·
+          <a href="https://row.hyperx.com/collections/gaming-headsets" target="_blank" rel="noopener">HyperX</a> ·
+          <a href="https://www.logitechg.com/en-us/shop/c/gaming-headsets-audio" target="_blank" rel="noopener">Logitech G</a> ·
+          <a href="https://www.turtlebeach.com/collections/headsets" target="_blank" rel="noopener">Turtle Beach</a>
+        </div>
+
         <div class="grid four" style="margin-top:18px;">
           <div class="card glass hover-lift reveal"><div class="icon-badge">01</div><h3>Compatibility confusion</h3><p>Turn platform uncertainty into landing pages, badges, setup steps, and platform-specific ads.</p></div>
           <div class="card glass hover-lift reveal delay-1"><div class="icon-badge">02</div><h3>Mic skepticism</h3><p>Add voice demos, noisy-room examples, Discord proof, and direct product-page evidence.</p></div>
@@ -2378,6 +2475,12 @@
               <tr><td>YouTube or Demand Gen</td><td>Mic demo, cross-platform setup, comfort story.</td><td>Video-first proof and warm audience retargeting.</td><td>Assisted conversions</td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="source-note inline reveal">
+          <strong>Channel reference:</strong>
+          Performance Max and Shopping recommendations follow Google’s campaign-type documentation for ecommerce product promotion through Merchant Center and Google Ads inventory.
+          <a href="https://support.google.com/google-ads/answer/10724817?hl=en" target="_blank" rel="noopener">Google Ads Performance Max</a> ·
+          <a href="https://support.google.com/google-ads/answer/2454022?hl=en" target="_blank" rel="noopener">Google Shopping ads</a>
         </div>
       </div>
     </section>
@@ -2446,6 +2549,12 @@
           <p class="section-copy">
             Performance reporting should distinguish business outcomes from diagnostic signals. CTR and CPC are useful, but revenue, ROAS, CPA, CVR, AOV, and product-level profitability remain the core decision metrics.
           </p>
+        </div>
+
+        <div class="source-note inline reveal">
+          <strong>Measurement reference:</strong>
+          Ecommerce tracking recommendations align with Google Analytics 4 ecommerce events such as product views, add to cart, begin checkout, and purchase.
+          <a href="https://developers.google.com/analytics/devguides/collection/ga4/ecommerce" target="_blank" rel="noopener">GA4 ecommerce measurement</a>
         </div>
 
         <div class="grid three">
@@ -2583,6 +2692,10 @@
             </div>
           </div>
         </div>
+        <div class="source-note inline reveal">
+          <strong>Forecast note:</strong>
+          The forecast figures are planning assumptions for scenario modeling. Final projections should be recalculated after Keyword Planner CPCs, Merchant Center feed data, actual conversion rate, average order value, margin, and website analytics are available.
+        </div>
       </div>
     </section>
 
@@ -2705,6 +2818,44 @@
       </div>
     </section>
 
+
+    <section id="references" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">References</div>
+            <h2>Research sources used to support the strategy</h2>
+          </div>
+          <p class="section-copy">
+            These references support the market sizing, audience framing, competitor positioning, campaign channel logic, and measurement setup used throughout the strategy.
+          </p>
+        </div>
+
+        <div class="reference-list reveal">
+          <div class="reference-item">
+            <strong>Market size</strong>
+            <span><a href="https://www.mordorintelligence.com/industry-reports/united-states-gaming-headsets-market" target="_blank" rel="noopener">Mordor Intelligence, U.S. Gaming Headsets Market</a>. Used for U.S. market size, CAGR, and market-growth context.</span>
+          </div>
+          <div class="reference-item">
+            <strong>Audience</strong>
+            <span><a href="https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/" target="_blank" rel="noopener">Entertainment Software Association, 2025 Essential Facts</a>. Used for the U.S. gamer population and age-demographic context.</span>
+          </div>
+          <div class="reference-item">
+            <strong>Competitors</strong>
+            <span><a href="https://www.razer.com/pc/gaming-headsets-and-audio" target="_blank" rel="noopener">Razer</a>, <a href="https://steelseries.com/gaming-headsets" target="_blank" rel="noopener">SteelSeries</a>, <a href="https://row.hyperx.com/collections/gaming-headsets" target="_blank" rel="noopener">HyperX</a>, <a href="https://www.logitechg.com/en-us/shop/c/gaming-headsets-audio" target="_blank" rel="noopener">Logitech G</a>, and <a href="https://www.turtlebeach.com/collections/headsets" target="_blank" rel="noopener">Turtle Beach</a>. Used for product range, platform positioning, and competitor messaging review.</span>
+          </div>
+          <div class="reference-item">
+            <strong>Campaign types</strong>
+            <span><a href="https://support.google.com/google-ads/answer/10724817?hl=en" target="_blank" rel="noopener">Google Ads Help, Performance Max</a> and <a href="https://support.google.com/google-ads/answer/2454022?hl=en" target="_blank" rel="noopener">Google Ads Help, Shopping ads</a>. Used for the campaign-channel recommendation.</span>
+          </div>
+          <div class="reference-item">
+            <strong>Measurement</strong>
+            <span><a href="https://developers.google.com/analytics/devguides/collection/ga4/ecommerce" target="_blank" rel="noopener">Google Analytics 4 Ecommerce Measurement</a>. Used for ecommerce event recommendations such as view item, add to cart, begin checkout, and purchase.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="shell">
         <div class="final-reco reveal">
@@ -2728,7 +2879,7 @@
   </main>
 
   <footer class="footer shell">
-    <p>Sampleton Headphones | Google Ads Growth Strategy and Forecast Framework</p>
+    <p>Sampleton Headphones | Google Ads Growth Strategy, Forecast Framework, and Research References</p>
   </footer>
 
   <script>
